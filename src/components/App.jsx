@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <AppBar />
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <>
           <p>Please log in</p>
           <LoginForm />
@@ -35,11 +35,14 @@ function App() {
           <p>Reagistrate, please</p>
           <RegistrationForm />
         </>
-      )}
+      )} */}
+      <p>Please log in</p>
+      <LoginForm />
+      <p>Reagistrate, please</p>
+      <RegistrationForm />
 
       <h1>Phonebook</h1>
       <ContactForm />
-
       {loading && <Loader>Loading contacts....</Loader>}
       {!loading && !error && <SearchContact />}
       {error && <Error>Error! </Error>}
