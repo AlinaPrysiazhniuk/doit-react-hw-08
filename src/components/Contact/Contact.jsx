@@ -1,8 +1,8 @@
-import css from './Contact.module.css';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { IoMdContact } from 'react-icons/io';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
+import css from "./Contact.module.css";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { IoMdContact } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contacts/contactsOps";
 
 export default function Contact({ contact }) {
   const dispatch = useDispatch();

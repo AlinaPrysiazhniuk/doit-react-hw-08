@@ -1,24 +1,24 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useId } from 'react';
-import * as Yup from 'yup';
-import 'yup-phone-lite';
-import css from './ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useId } from "react";
+import * as Yup from "yup";
+import "yup-phone-lite";
+import css from "./ContactForm.module.css";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contacts/contactsOps";
 
 const initialValues = {
-  name: '',
-  number: '',
+  name: "",
+  number: "",
 };
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long!')
-    .required('Required'),
+    .min(3, "Too short!")
+    .max(50, "Too long!")
+    .required("Required"),
   number: Yup.string()
-    .phone('IN', 'Please, enter valid number!')
-    .required('Required'),
+    .phone("IN", "Please, enter valid number!")
+    .required("Required"),
 });
 
 export default function ContactForm() {
