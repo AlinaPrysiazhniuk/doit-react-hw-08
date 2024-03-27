@@ -46,7 +46,7 @@ function App() {
       {loading && <Loader>Loading contacts....</Loader>}
       {!loading && !error && <SearchContact />}
       {error && <Error>Error! </Error>}
-      <ContactList />
+      {isLoggedIn && <ContactList />}
     </>
   );
 }
