@@ -40,13 +40,11 @@ function App() {
       <LoginForm />
       <p>Reagistrate, please</p>
       <RegistrationForm />
-
       <h1>Phonebook</h1>
       <ContactForm />
       {loading && <Loader>Loading contacts....</Loader>}
       {!loading && !error && <SearchContact />}
       {error && <Error>Error! </Error>}
-
       {isLoggedIn && (
         <>
           <div>Contacts</div>
