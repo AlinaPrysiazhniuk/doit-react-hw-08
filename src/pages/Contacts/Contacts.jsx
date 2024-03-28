@@ -5,12 +5,13 @@ import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/contactsOps";
 import { selectLoading } from "../../redux/contacts/selectors";
 import Loader from "../../components/Loader/Loader";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 export default function Contacts() {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
   // const error = useSelector(selectError);
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -18,10 +19,14 @@ export default function Contacts() {
 
   return (
     <>
-      <h2>Phonebook</h2>
-      <ContactForm />
+      {isLoggedIn && (
+        <>
+          <h2>Phonebook</h2>
+          <ContactForm />
+        </>
+      )}
       {loading && <Loader />}
-      <ContactList />
+      {isLoggedIn && <ContactList />}
     </>
   );
 }
