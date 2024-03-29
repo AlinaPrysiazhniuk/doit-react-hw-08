@@ -46,4 +46,18 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   }
 });
 
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const reduxState = thunkAPI.getState();
+    const savedToken = reduxState.auth.token;
+    setAuthHeader(savedToken);
+    const response = await axios.get("/users/current");
+    return response.data;
+  },
+  {
+    condition: () => {},
+  }
+);
+
 //alinka25@gmail.com
