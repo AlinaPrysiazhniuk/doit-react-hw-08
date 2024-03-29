@@ -1,56 +1,55 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/Home/Home";
+import Register from "../pages/Register/Register";
+import Login from "../pages/Login/Login";
+import Contacts from "../pages/Contacts/Contacts";
+import Layout from "./Layout/Layout";
 import { useEffect } from "react";
-import ContactForm from "./ContactForm/ContactForm";
-import ContactList from "./ContactList/ContactList";
-import SearchContact from "./SearchBox/SearchBox";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../redux/contacts/contactsOps";
-import { selectLoading, selectError } from "../redux/contacts/selectors";
-import LoginForm from "./LoginForm/LoginForm";
-import RegistrationForm from "./RegistrationForm/RegistrationForm";
-import Loader from "./Loader/Loader";
-import Error from "./Error/Error";
-import AppBar from "./AppBar/AppBar";
-import { selectIsLoggedIn } from "../redux/auth/selectors";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../redux/auth/operations";
+import { selectIsRefreshing } from "../redux/auth/selectors";
+import { RestrictedRoute } from "./RestrictedRoute";
+import { PrivateRoute } from "./PrivateRoute";
 
 function App() {
-  const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispath = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  return (
+    dispath(refreshUser());
+  }, [dispath]);
+  return isRefreshing ? (
+    <b>Refreshing user, please wait....</b>
+  ) : (
     <>
-      <AppBar />
-      {/* {isLoggedIn ? (
-        <>
-          <p>Please log in</p>
-          <LoginForm />
-        </>
-      ) : (
-        <>
-          <p>Reagistrate, please</p>
-          <RegistrationForm />
-        </>
-      )} */}
-      <p>Please log in</p>
-      <LoginForm />
-      <p>Reagistrate, please</p>
-      <RegistrationForm />
-      <h1>Phonebook</h1>
-      <ContactForm />
-      {loading && <Loader>Loading contacts....</Loader>}
-      {!loading && !error && <SearchContact />}
-      {error && <Error>Error! </Error>}
-      {isLoggedIn && (
-        <>
-          <div>Contacts</div>
-          <ContactList />
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                component={<Register />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+            }
+          />
+
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<Contacts />} redirectTo="/login" />
+            }
+          />
+        </Route>
+      </Routes>
     </>
   );
 }
