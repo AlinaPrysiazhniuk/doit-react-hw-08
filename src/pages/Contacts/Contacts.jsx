@@ -29,3 +29,5 @@ export default function Contacts() {
     </>
   );
 }
+
+//дивитися на стан кнопки delete, якщо true то відкривати модальне вікно

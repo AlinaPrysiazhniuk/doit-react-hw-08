@@ -5,6 +5,7 @@ import "yup-phone-lite";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/contactsOps";
+import toast, { Toaster } from "react-hot-toast";
 
 const initialValues = {
   name: "",
@@ -28,6 +29,7 @@ export default function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
+    toast.success("Contact was added");
     actions.resetForm();
   };
   return (
@@ -64,8 +66,7 @@ export default function ContactForm() {
           </button>
         </Form>
       </Formik>
+      <Toaster />
     </>
   );
 }
-
-//////
