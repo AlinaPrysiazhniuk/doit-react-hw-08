@@ -30,11 +30,18 @@ function App() {
             <Route index element={<Home />} />
             <Route
               path="register"
-              element={<RestrictedRoute component={<Register />} />}
+              element={
+                <RestrictedRoute
+                  component={<Register />}
+                  redirectTo="/contacts"
+                />
+              }
             />
             <Route
               path="login"
-              element={<RestrictedRoute component={<Login />} />}
+              element={
+                <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+              }
             />
 
             <Route
