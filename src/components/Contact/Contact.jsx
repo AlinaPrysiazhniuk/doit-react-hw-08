@@ -1,7 +1,6 @@
 import css from "./Contact.module.css";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoMdContact } from "react-icons/io";
-import { useDispatch } from "react-redux";
 
 import ModalContact from "../../components/Modal/Modal";
 import Modal from "react-modal";
@@ -19,19 +18,11 @@ const customStyles = {
     heigth: "400px",
   },
   overlay: {
-    // top: "100%",
-    // left: "100%",
-    // right: "auto",
-    // bottom: "auto",
     width: "100%", // Ширина повністю розтягується на весь вікно
     height: "100%", // Висота повністю розтягується на весь вікно
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // position: "fixed", // Встановлюємо позицію fixed
-    // border: "2px solid black", // Додаємо рамку
-    // backgroundColor: "white",
-    // boxSizing: "border-box", // Зберігаємо ширину і висоту включаючи рамку
   },
 };
 Modal.setAppElement("#modal");
@@ -43,7 +34,6 @@ export default function Contact({ contact }) {
 
   function openModal() {
     setIsOpen(true);
-    // setId(id);
   }
 
   function closeModal() {
@@ -75,7 +65,6 @@ export default function Contact({ contact }) {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
-        // overlayClassName="custom-overlay"
       >
         {<ModalContact contact={contact} />}
       </Modal>
