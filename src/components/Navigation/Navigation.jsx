@@ -6,10 +6,25 @@ export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <nav>
-      <NavLink to="/" style={{ fontSize: 20, color: "red" }}>
+      <NavLink
+        to="/"
+        style={{
+          fontSize: 20,
+          color: "red",
+          marginRight: 20,
+          textDecoration: "none",
+        }}
+      >
         Home
       </NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
+      {isLoggedIn && (
+        <NavLink
+          to="/contacts"
+          style={{ fontSize: 20, color: "red", textDecoration: "none" }}
+        >
+          Contacts
+        </NavLink>
+      )}
     </nav>
   );
 }

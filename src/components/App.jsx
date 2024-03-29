@@ -11,7 +11,6 @@ import { refreshUser } from "../redux/auth/operations";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import { RestrictedRoute } from "./RestrictedRoute";
 import { PrivateRoute } from "./PrivateRoute";
-import { Suspense } from "react";
 
 function App() {
   const dispath = useDispatch();
@@ -24,35 +23,33 @@ function App() {
     <b>Refreshing user, please wait....</b>
   ) : (
     <>
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute
-                  component={<Register />}
-                  redirectTo="/contacts"
-                />
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <RestrictedRoute component={<Login />} redirectTo="/contacts" />
-              }
-            />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                component={<Register />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+            }
+          />
 
-            <Route
-              path="contacts"
-              element={
-                <PrivateRoute component={<Contacts />} redirectTo="/login" />
-              }
-            />
-          </Route>
-        </Routes>
-      </Suspense>
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<Contacts />} redirectTo="/login" />
+            }
+          />
+        </Route>
+      </Routes>
     </>
   );
 }
