@@ -8,6 +8,8 @@ import Loader from "../../components/Loader/Loader";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Error from "../../components/Error/Error";
 import { selectError } from "../../redux/contacts/selectors";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -19,13 +21,31 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <>
-      <h2>Phonebook</h2>
+    <Box
+      sx={{
+        marginTop: "10px",
+        backgroundColor: "#f2f1f0",
+        padding: "10px",
+        borderRadius: "8px",
+      }}
+    >
+      <Typography
+        variant="h6"
+        sx={{
+          color: "#524f4e",
+          fontSize: "22px",
+          marginBottom: "10px",
+          textAlign: "center",
+        }}
+      >
+        Phonebook
+      </Typography>
+
       <ContactForm />
       {loading && <Loader />}
       <SearchBox />
 
       {error ? <Error>Error! </Error> : <ContactList />}
-    </>
+    </Box>
   );
 }

@@ -8,6 +8,8 @@ import { addContact } from "../../redux/contacts/contactsOps";
 import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const initialValues = {
   name: "",
@@ -35,7 +37,18 @@ export default function ContactForm() {
     actions.resetForm();
   };
   return (
-    <>
+    <Box
+      sx={{
+        marginTop: "10px",
+        backgroundColor: "#f2f1f0",
+        padding: "10px",
+        borderRadius: "8px",
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        // gap: "20px",
+      }}
+    >
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -43,7 +56,9 @@ export default function ContactForm() {
       >
         <Form className={css.form}>
           <div className={css.info_user}>
-            <label htmlFor={nameId}>Name</label>
+            <label htmlFor={nameId} className={css.label}>
+              Name
+            </label>
             <Field name="name">
               {({ field }) => (
                 <TextField
@@ -58,7 +73,9 @@ export default function ContactForm() {
           </div>
 
           <div className={css.info_user}>
-            <label htmlFor={phoneId}>Number</label>
+            <label htmlFor={phoneId} className={css.label}>
+              Number
+            </label>
             <Field name="number">
               {({ field }) => (
                 <TextField {...field} id={phoneId} label="Enter valid number" />
@@ -77,6 +94,6 @@ export default function ContactForm() {
         </Form>
       </Formik>
       <Toaster />
-    </>
+    </Box>
   );
 }
