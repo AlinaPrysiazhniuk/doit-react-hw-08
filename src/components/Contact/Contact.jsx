@@ -6,6 +6,17 @@ import ModalContact from "../../components/Modal/Modal";
 import Modal from "react-modal";
 import { useState } from "react";
 import { Button } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    ochre: {
+      main: "#e36f71",
+    },
+  },
+});
 
 const customStyles = {
   content: {
@@ -43,7 +54,7 @@ export default function Contact({ contact }) {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div>
         <p className={css.item_info}>
           <IoMdContact className={css.icon_man} />
@@ -55,9 +66,13 @@ export default function Contact({ contact }) {
         </p>
       </div>
 
-      {/* <button type="button" className={css.btn_delete}></button> */}
-
-      <Button variant="contained" type="button" onClick={handleDelete}>
+      <Button
+        variant="outlined"
+        type="button"
+        startIcon={<DeleteIcon fontSize="small" />}
+        onClick={handleDelete}
+        color="ochre"
+      >
         Delete
       </Button>
       <Modal
@@ -68,7 +83,7 @@ export default function Contact({ contact }) {
       >
         {<ModalContact contact={contact} />}
       </Modal>
-    </>
+    </ThemeProvider>
   );
 }
 

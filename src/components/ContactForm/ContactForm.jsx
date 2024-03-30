@@ -6,6 +6,8 @@ import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/contactsOps";
 import toast, { Toaster } from "react-hot-toast";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
 const initialValues = {
   name: "",
@@ -42,18 +44,26 @@ export default function ContactForm() {
         <Form className={css.form}>
           <div className={css.info_user}>
             <label htmlFor={nameId}>Name</label>
-            <Field type="text" name="name" id={nameId} className={css.input} />
+            <Field name="name">
+              {({ field }) => (
+                <TextField
+                  {...field}
+                  id={nameId}
+                  label="Enter valid name"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
             <ErrorMessage name="name" component="span" className={css.error} />
           </div>
 
           <div className={css.info_user}>
             <label htmlFor={phoneId}>Number</label>
-            <Field
-              type="tel"
-              name="number"
-              id={phoneId}
-              className={css.input}
-            />
+            <Field name="number">
+              {({ field }) => (
+                <TextField {...field} id={phoneId} label="Enter valid number" />
+              )}
+            </Field>
             <ErrorMessage
               name="number"
               component="span"
@@ -61,9 +71,9 @@ export default function ContactForm() {
             />
           </div>
 
-          <button type="submit" className={css.btn_add}>
+          <Button variant="outlined" type="submit">
             Add contact
-          </button>
+          </Button>
         </Form>
       </Formik>
       <Toaster />
