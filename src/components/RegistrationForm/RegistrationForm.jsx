@@ -54,7 +54,7 @@ export default function RegistrationForm() {
               gap: "4px",
               width: "100%",
               color: "#524f4e",
-              fontWeight: "500",
+              // fontWeight: "500",
             }}
           >
             <label
