@@ -2,6 +2,8 @@ import { Formik, Form, Field } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import css from "./LoginForm.module.css";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -20,13 +22,35 @@ export default function LoginForm() {
       <Form className={css.form} autoComplete="off">
         <label className={css.label}>
           Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email">
+            {({ field }) => (
+              <TextField
+                {...field}
+                // id={nameId}
+
+                label="Enter your email"
+                defaultValue="Default Value"
+              />
+            )}
+          </Field>
         </label>
         <label className={css.label}>
           Password
-          <Field type="password" name="password" />
+          <Field type="password" name="password">
+            {({ field }) => (
+              <TextField
+                {...field}
+                // id={nameId}
+
+                label="Enter password"
+                defaultValue="Default Value"
+              />
+            )}
+          </Field>
         </label>
-        <button type="submit">Log In</button>
+        <Button variant="outlined" type="submit">
+          Log In
+        </Button>
       </Form>
     </Formik>
   );
