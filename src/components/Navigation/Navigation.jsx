@@ -20,6 +20,9 @@ export default function Navigation() {
             flexGrow: 2,
             color: "#4f4e4d",
             fontWeight: "600",
+            "&:hover": {
+              color: "#55a8d9",
+            },
           }}
         >
           Home
@@ -48,6 +51,9 @@ export default function Navigation() {
                 flexGrow: 2,
                 color: "#4f4e4d",
                 fontWeight: "600",
+                "&:hover": {
+                  color: "#55a8d9",
+                },
               }}
             >
               Contacts

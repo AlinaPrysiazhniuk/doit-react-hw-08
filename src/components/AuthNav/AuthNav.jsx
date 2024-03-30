@@ -22,6 +22,9 @@ export default function AuthNav() {
             fontSize: 18,
             color: "#737270",
             fontWeight: "600",
+            "&:hover": {
+              color: "#55a8d9",
+            },
           }}
         >
           Register
@@ -46,6 +49,9 @@ export default function AuthNav() {
             fontSize: 18,
             color: "#737270",
             fontWeight: "600",
+            "&:hover": {
+              color: "#55a8d9",
+            },
           }}
         >
           LogIn
