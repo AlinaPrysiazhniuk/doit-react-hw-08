@@ -53,21 +53,25 @@ export default function RegistrationForm() {
               fontWeight: "500",
             }}
           >
-            <label>Username</label>
-            <Field name="name">
-              {({ field }) => (
-                <TextField
-                  sx={{
-                    backgroundColor: "#f5f8fa",
-                  }}
-                  {...field}
-                  // id={nameId}
+            <label
+              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+            >
+              Username
+              <Field name="name">
+                {({ field }) => (
+                  <TextField
+                    sx={{
+                      backgroundColor: "#f5f8fa",
+                    }}
+                    {...field}
+                    // id={nameId}
 
-                  label="Enter your name"
-                  defaultValue="Default Value"
-                />
-              )}
-            </Field>
+                    label="Enter your name"
+                    defaultValue="Default Value"
+                  />
+                )}
+              </Field>
+            </label>
           </Box>
           <Box
             sx={{
@@ -79,21 +83,25 @@ export default function RegistrationForm() {
               fontWeight: "500",
             }}
           >
-            <label>Email</label>
-            <Field type="email" name="email">
-              {({ field }) => (
-                <TextField
-                  sx={{
-                    backgroundColor: "#f5f8fa",
-                  }}
-                  {...field}
-                  // id={nameId}
+            <label
+              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+            >
+              Email
+              <Field type="email" name="email">
+                {({ field }) => (
+                  <TextField
+                    sx={{
+                      backgroundColor: "#f5f8fa",
+                    }}
+                    {...field}
+                    // id={nameId}
 
-                  label="Enter your email"
-                  defaultValue="Default Value"
-                />
-              )}
-            </Field>
+                    label="Enter your email"
+                    defaultValue="Default Value"
+                  />
+                )}
+              </Field>
+            </label>
           </Box>
 
           <Box
@@ -106,21 +114,25 @@ export default function RegistrationForm() {
               fontWeight: "500",
             }}
           >
-            <label>Password</label>
-            <Field type="password" name="password">
-              {({ field }) => (
-                <TextField
-                  sx={{
-                    backgroundColor: "#f5f8fa",
-                  }}
-                  {...field}
-                  // id={nameId}
+            <label
+              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+            >
+              Password
+              <Field type="password" name="password">
+                {({ field }) => (
+                  <TextField
+                    sx={{
+                      backgroundColor: "#f5f8fa",
+                    }}
+                    {...field}
+                    // id={nameId}
 
-                  label="Enter password"
-                  defaultValue="Default Value"
-                />
-              )}
-            </Field>
+                    label="Enter password"
+                    defaultValue="Default Value"
+                  />
+                )}
+              </Field>
+            </label>
           </Box>
           <Button
             variant="outlined"
