@@ -52,6 +52,9 @@ export default function LoginForm() {
             <Field type="email" name="email">
               {({ field }) => (
                 <TextField
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
                   {...field}
                   // id={nameId}
 
@@ -76,6 +79,9 @@ export default function LoginForm() {
             <Field type="password" name="password">
               {({ field }) => (
                 <TextField
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
                   {...field}
                   // id={nameId}
 
@@ -85,7 +91,11 @@ export default function LoginForm() {
               )}
             </Field>
           </Box>
-          <Button variant="outlined" type="submit">
+          <Button
+            variant="outlined"
+            type="submit"
+            sx={{ backgroundColor: "#d4eafc", border: "1px solid #2a78bd " }}
+          >
             Log In
           </Button>
         </Form>
