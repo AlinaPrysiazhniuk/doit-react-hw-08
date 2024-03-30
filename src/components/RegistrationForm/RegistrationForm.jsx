@@ -3,6 +3,7 @@ import css from "./RegistrationForm.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 
 export default function RegistrationForm() {
@@ -13,62 +14,71 @@ export default function RegistrationForm() {
     actions.resetForm();
   };
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        email: "",
-        password: "",
+    <Box
+      sx={{
+        marginTop: "10px",
+        backgroundColor: "#f2f1f0",
+
+        padding: "10px",
+        borderRadius: "8px",
       }}
-      onSubmit={handleSubmit}
     >
-      <Form className={css.form} autoComplete="off">
-        <label className={css.label}>
-          Username
-          <Field type="text" name="text">
-            {({ field }) => (
-              <TextField
-                {...field}
-                // id={nameId}
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form} autoComplete="off">
+          <label className={css.label}>
+            Username
+            <Field name="name">
+              {({ field }) => (
+                <TextField
+                  {...field}
+                  // id={nameId}
+                  label="Enter valid name"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
+          </label>
+          <label className={css.label}>
+            Email
+            <Field type="email" name="email">
+              {({ field }) => (
+                <TextField
+                  {...field}
+                  // id={nameId}
 
-                label="Enter your name"
-                // defaultValue="Default Value"
-              />
-            )}
-          </Field>
-        </label>
-        <label className={css.label}>
-          Email
-          <Field type="email" name="email">
-            {({ field }) => (
-              <TextField
-                {...field}
-                // id={nameId}
+                  label="Enter your email"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
+          </label>
+          <label className={css.label}>
+            Password
+            <Field type="password" name="password">
+              {({ field }) => (
+                <TextField
+                  {...field}
+                  // id={nameId}
 
-                label="Enter your email"
-                defaultValue="Default Value"
-              />
-            )}
-          </Field>
-        </label>
-        <label className={css.label}>
-          Password
-          <Field type="password" name="password">
-            {({ field }) => (
-              <TextField
-                {...field}
-                // id={nameId}
+                  label="Enter password"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
+          </label>
 
-                label="Enter password"
-                defaultValue="Default Value"
-              />
-            )}
-          </Field>
-        </label>
-
-        <Button variant="outlined" type="submit">
-          Register
-        </Button>
-      </Form>
-    </Formik>
+          <Button variant="outlined" type="submit">
+            Register
+          </Button>
+        </Form>
+      </Formik>
+    </Box>
   );
 }
