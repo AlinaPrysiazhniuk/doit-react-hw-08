@@ -8,7 +8,7 @@ export default function AuthNav() {
       sx={{
         display: "flex",
         alignItems: "center",
-        gap: "15px",
+        gap: "10px",
       }}
     >
       <NavLink
@@ -27,6 +27,14 @@ export default function AuthNav() {
           Register
         </Typography>
       </NavLink>
+      <Typography
+        sx={{
+          fontSize: 20,
+          color: "#9e9d99",
+        }}
+      >
+        |
+      </Typography>
       <NavLink
         to="/login"
         style={{

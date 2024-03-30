@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import "yup-phone-lite";
@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 
 const initialValues = {
   name: "",
@@ -32,7 +33,7 @@ export default function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
-    toast.success("Contact was added");
+    toast.success("Contact was added!");
     actions.resetForm();
   };
   return (
@@ -45,7 +46,6 @@ export default function ContactForm() {
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
-        // gap: "20px",
       }}
     >
       <Formik
@@ -53,11 +53,28 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
-        <Form className={css.form}>
-          <div className={css.info_user}>
-            <label htmlFor={nameId} className={css.label}>
-              Name
-            </label>
+        <FormControl
+          sx={{
+            border: "1px solid #b0aeac",
+            borderRadius: "5px",
+            width: "280px",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            alignItems: "center",
+            color: "#524f4e",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+            }}
+          >
+            <label htmlFor={nameId}>Name</label>
             <Field name="name">
               {({ field }) => (
                 <TextField
@@ -69,12 +86,17 @@ export default function ContactForm() {
               )}
             </Field>
             <ErrorMessage name="name" component="span" className={css.error} />
-          </div>
+          </Box>
 
-          <div className={css.info_user}>
-            <label htmlFor={phoneId} className={css.label}>
-              Number
-            </label>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+            }}
+          >
+            <label htmlFor={phoneId}>Number</label>
             <Field name="number">
               {({ field }) => (
                 <TextField {...field} id={phoneId} label="Enter valid number" />
@@ -85,12 +107,12 @@ export default function ContactForm() {
               component="span"
               className={css.error}
             />
-          </div>
+          </Box>
 
           <Button variant="outlined" type="submit">
             Add contact
           </Button>
-        </Form>
+        </FormControl>
       </Formik>
       <Toaster />
     </Box>

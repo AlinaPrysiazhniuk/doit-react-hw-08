@@ -61,7 +61,6 @@ export default function Contact({ contact }) {
         padding: "10px",
         display: "flex",
         justifyContent: "space-between",
-        // gap: "40px",
         border: "1px solid #b0aeac",
         width: "400px",
       }}

@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <Box sx={{ display: "flex", gap: "15px" }}>
+    <Box sx={{ display: "flex", gap: "5px", alignItems: "center" }}>
       <NavLink
         to="/"
         style={{
@@ -27,23 +27,33 @@ export default function Navigation() {
       </NavLink>
 
       {isLoggedIn && (
-        <NavLink
-          to="/contacts"
-          style={{
-            textDecoration: "none",
-          }}
-        >
+        <>
           <Typography
             sx={{
               fontSize: 24,
-              flexGrow: 2,
-              color: "#4f4e4d",
-              fontWeight: "600",
+              color: "#9e9d99",
             }}
           >
-            Contacts
+            |
           </Typography>
-        </NavLink>
+          <NavLink
+            to="/contacts"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: 24,
+                flexGrow: 2,
+                color: "#4f4e4d",
+                fontWeight: "600",
+              }}
+            >
+              Contacts
+            </Typography>
+          </NavLink>
+        </>
       )}
     </Box>
   );

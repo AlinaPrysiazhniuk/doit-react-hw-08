@@ -1,7 +1,6 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Field } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
-import css from "./LoginForm.module.css";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -16,10 +15,8 @@ export default function LoginForm() {
   return (
     <Box
       sx={{
-        marginTop: "10px",
         backgroundColor: "#f2f1f0",
-
-        padding: "10px",
+        padding: "15px",
         borderRadius: "8px",
       }}
     >
@@ -30,9 +27,28 @@ export default function LoginForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form} autoComplete="off">
-          <label className={css.label}>
-            Email
+        <FormControl
+          sx={{
+            width: "320px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+          autoComplete="off"
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+              color: "#524f4e",
+              fontWeight: "500",
+            }}
+          >
+            <label>Email</label>
             <Field type="email" name="email">
               {({ field }) => (
                 <TextField
@@ -44,9 +60,19 @@ export default function LoginForm() {
                 />
               )}
             </Field>
-          </label>
-          <label className={css.label}>
-            Password
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+              color: "#524f4e",
+              fontWeight: "500",
+            }}
+          >
+            <label>Password</label>
             <Field type="password" name="password">
               {({ field }) => (
                 <TextField
@@ -58,11 +84,11 @@ export default function LoginForm() {
                 />
               )}
             </Field>
-          </label>
+          </Box>
           <Button variant="outlined" type="submit">
             Log In
           </Button>
-        </Form>
+        </FormControl>
       </Formik>
     </Box>
   );
