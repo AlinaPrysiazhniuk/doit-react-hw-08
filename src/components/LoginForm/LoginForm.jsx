@@ -91,7 +91,7 @@ export default function LoginForm() {
               htmlFor={passwordId}
               style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
-              Password{" "}
+              Password
             </label>
             <Field type="password" name="password">
               {({ field }) => (
