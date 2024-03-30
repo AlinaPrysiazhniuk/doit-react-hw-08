@@ -12,14 +12,13 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    // marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     width: "300px",
     heigth: "400px",
   },
   overlay: {
-    width: "100%", // Ширина повністю розтягується на весь вікно
-    height: "100%", // Висота повністю розтягується на весь вікно
+    width: "100%",
+    height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -28,8 +27,6 @@ const customStyles = {
 Modal.setAppElement("#modal");
 
 export default function Contact({ contact }) {
-  // const dispatch = useDispatch();
-
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
