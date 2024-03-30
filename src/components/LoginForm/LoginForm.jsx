@@ -1,10 +1,9 @@
-import { Formik, Field } from "formik";
+import { Formik, Form, Field } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -27,8 +26,8 @@ export default function LoginForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <FormControl
-          sx={{
+        <Form
+          style={{
             width: "320px",
             marginLeft: "auto",
             marginRight: "auto",
@@ -88,7 +87,7 @@ export default function LoginForm() {
           <Button variant="outlined" type="submit">
             Log In
           </Button>
-        </FormControl>
+        </Form>
       </Formik>
     </Box>
   );

@@ -31,22 +31,51 @@ export default function RegistrationForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form} autoComplete="off">
-          <label className={css.label}>
-            Username
+        <Form
+          style={{
+            width: "320px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+          autoComplete="off"
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+              color: "#524f4e",
+              fontWeight: "500",
+            }}
+          >
+            <label>Username</label>
             <Field name="name">
               {({ field }) => (
                 <TextField
                   {...field}
                   // id={nameId}
-                  label="Enter valid name"
+
+                  label="Enter your name"
                   defaultValue="Default Value"
                 />
               )}
             </Field>
-          </label>
-          <label className={css.label}>
-            Email
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+              color: "#524f4e",
+              fontWeight: "500",
+            }}
+          >
+            <label>Email</label>
             <Field type="email" name="email">
               {({ field }) => (
                 <TextField
@@ -58,9 +87,19 @@ export default function RegistrationForm() {
                 />
               )}
             </Field>
-          </label>
-          <label className={css.label}>
-            Password
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px",
+              width: "100%",
+              color: "#524f4e",
+              fontWeight: "500",
+            }}
+          >
+            <label>Password</label>
             <Field type="password" name="password">
               {({ field }) => (
                 <TextField
@@ -72,8 +111,7 @@ export default function RegistrationForm() {
                 />
               )}
             </Field>
-          </label>
-
+          </Box>
           <Button variant="outlined" type="submit">
             Register
           </Button>
