@@ -1,4 +1,4 @@
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import "yup-phone-lite";
@@ -9,7 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
 
 const initialValues = {
   name: "",
@@ -53,8 +52,8 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
-        <FormControl
-          sx={{
+        <Form
+          style={{
             border: "1px solid #b0aeac",
             borderRadius: "5px",
             width: "280px",
@@ -112,7 +111,7 @@ export default function ContactForm() {
           <Button variant="outlined" type="submit">
             Add contact
           </Button>
-        </FormControl>
+        </Form>
       </Formik>
       <Toaster />
     </Box>
