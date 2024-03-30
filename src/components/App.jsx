@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     dispath(refreshUser());
   }, [dispath]);
-  return isRefreshing ? (
+  return !isRefreshing ? (
     <b>Refreshing user, please wait....</b>
   ) : (
     <>
