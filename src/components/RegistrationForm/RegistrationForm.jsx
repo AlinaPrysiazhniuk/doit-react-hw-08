@@ -2,6 +2,8 @@ import { Formik, Form, Field } from "formik";
 import css from "./RegistrationForm.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
@@ -22,17 +24,50 @@ export default function RegistrationForm() {
       <Form className={css.form} autoComplete="off">
         <label className={css.label}>
           Username
-          <Field type="text" name="name" />
+          <Field type="text" name="text">
+            {({ field }) => (
+              <TextField
+                {...field}
+                // id={nameId}
+
+                label="Enter your name"
+                // defaultValue="Default Value"
+              />
+            )}
+          </Field>
         </label>
         <label className={css.label}>
           Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email">
+            {({ field }) => (
+              <TextField
+                {...field}
+                // id={nameId}
+
+                label="Enter your email"
+                defaultValue="Default Value"
+              />
+            )}
+          </Field>
         </label>
         <label className={css.label}>
           Password
-          <Field type="password" name="password" />
+          <Field type="password" name="password">
+            {({ field }) => (
+              <TextField
+                {...field}
+                // id={nameId}
+
+                label="Enter password"
+                defaultValue="Default Value"
+              />
+            )}
+          </Field>
         </label>
-        <button type="submit">Register</button>
+
+        <Button variant="outlined" type="submit">
+          Register
+        </Button>
       </Form>
     </Formik>
   );
