@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
-import css from "./UserMenu.module.css";
 import { logOut } from "../../redux/auth/operations";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -13,8 +12,14 @@ export default function UserMenu() {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
-      <Typography variant="h7" sx={{ color: "#4f4e4d", marginRight: "10px" }}>
-        Welcome, {user.name}
+      <Typography variant="h7" sx={{ color: "#4f4e4d", marginRight: "5px" }}>
+        Welcome,
+      </Typography>
+      <Typography
+        variant="h7"
+        sx={{ color: "#4f4e4d", fontWeight: "500", marginRight: "10px" }}
+      >
+        {user.name}
       </Typography>
 
       <Button
@@ -26,8 +31,6 @@ export default function UserMenu() {
       >
         Logout
       </Button>
-
-      <p className={css.username}></p>
     </Box>
   );
 }

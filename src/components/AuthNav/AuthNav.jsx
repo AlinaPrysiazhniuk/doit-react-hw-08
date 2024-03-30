@@ -1,16 +1,48 @@
 import { NavLink } from "react-router-dom";
-import css from "./AuthNav.module.css";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 export default function AuthNav() {
   return (
-    <div>
-      <NavLink className={css.link} to="/register">
-        Register
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: "15px",
+      }}
+    >
+      <NavLink
+        to="/register"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: 18,
+            color: "#4f4e4d",
+            fontWeight: "600",
+          }}
+        >
+          Register
+        </Typography>
       </NavLink>
-
-      <NavLink className={css.link} to="/login">
-        Log In
+      <NavLink
+        to="/login"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: 18,
+            color: "#4f4e4d",
+            fontWeight: "600",
+          }}
+        >
+          LogIn
+        </Typography>
       </NavLink>
-    </div>
+    </Box>
   );
 }
