@@ -5,9 +5,13 @@ import { register } from "../../redux/auth/operations";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
+import { useId } from "react";
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
+  const mailId = useId();
+  const nameId = useId();
+  const passwordId = useId();
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(register(values));
@@ -19,7 +23,7 @@ export default function RegistrationForm() {
         marginTop: "10px",
         backgroundColor: "#f2f1f0",
 
-        padding: "10px",
+        padding: "20px",
         borderRadius: "8px",
       }}
     >
@@ -54,24 +58,26 @@ export default function RegistrationForm() {
             }}
           >
             <label
-              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+              htmlFor={nameId}
+              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
               Username
-              <Field name="name">
-                {({ field }) => (
-                  <TextField
-                    sx={{
-                      backgroundColor: "#f5f8fa",
-                    }}
-                    {...field}
-                    // id={nameId}
-
-                    label="Enter your name"
-                    defaultValue="Default Value"
-                  />
-                )}
-              </Field>
             </label>
+            <Field name="name">
+              {({ field }) => (
+                <TextField
+                  id={nameId}
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
+                  {...field}
+                  // id={nameId}
+
+                  label="Enter your name"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
           </Box>
           <Box
             sx={{
@@ -84,24 +90,26 @@ export default function RegistrationForm() {
             }}
           >
             <label
-              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+              htmlFor={mailId}
+              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
               Email
-              <Field type="email" name="email">
-                {({ field }) => (
-                  <TextField
-                    sx={{
-                      backgroundColor: "#f5f8fa",
-                    }}
-                    {...field}
-                    // id={nameId}
-
-                    label="Enter your email"
-                    defaultValue="Default Value"
-                  />
-                )}
-              </Field>
             </label>
+            <Field type="email" name="email">
+              {({ field }) => (
+                <TextField
+                  id={mailId}
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
+                  {...field}
+                  // id={nameId}
+
+                  label="Enter your email"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
           </Box>
 
           <Box
@@ -115,24 +123,26 @@ export default function RegistrationForm() {
             }}
           >
             <label
-              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+              htmlFor={passwordId}
+              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
               Password
-              <Field type="password" name="password">
-                {({ field }) => (
-                  <TextField
-                    sx={{
-                      backgroundColor: "#f5f8fa",
-                    }}
-                    {...field}
-                    // id={nameId}
-
-                    label="Enter password"
-                    defaultValue="Default Value"
-                  />
-                )}
-              </Field>
             </label>
+            <Field type="password" name="password">
+              {({ field }) => (
+                <TextField
+                  id={passwordId}
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
+                  {...field}
+                  // id={nameId}
+
+                  label="Enter password"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
           </Box>
           <Button
             variant="outlined"

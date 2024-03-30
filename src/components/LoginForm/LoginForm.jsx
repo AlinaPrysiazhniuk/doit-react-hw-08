@@ -43,9 +43,9 @@ export default function LoginForm() {
         >
           <Box
             sx={{
-              // display: "flex",
-              // flexDirection: "column",
-              // gap: "4px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "6px",
               // width: "100%",
               color: "#524f4e",
               // fontWeight: "500",
@@ -53,11 +53,13 @@ export default function LoginForm() {
           >
             <label
               htmlFor={mailId}
-              style={{
-                display: "flex",
-                flexDirection: " column",
-                gap: "4px",
-              }}
+              style={
+                {
+                  // display: "flex",
+                  // flexDirection: " column",
+                  // gap: "6px",
+                }
+              }
             >
               Email
             </label>
@@ -81,7 +83,7 @@ export default function LoginForm() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: "4px",
+              gap: "6px",
               width: "100%",
               color: "#524f4e",
               fontWeight: "500",
@@ -89,7 +91,7 @@ export default function LoginForm() {
           >
             <label
               htmlFor={passwordId}
-              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
               Password
             </label>
