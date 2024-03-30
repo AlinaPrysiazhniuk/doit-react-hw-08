@@ -4,9 +4,7 @@ import css from "./UserMenu.module.css";
 import { logOut } from "../../redux/auth/operations";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 export default function UserMenu() {
@@ -14,33 +12,22 @@ export default function UserMenu() {
   const user = useSelector(selectUser);
 
   return (
-    <div className={css.wrapper}>
-      {/* <Box sx={{ flexGrow: 1, width: "300px" }}> */}
-      {/* <AppBar position="static"> */}
-      <Typography
-        variant="h8"
-        component="div"
-        sx={{ flexGrow: 0.3, color: "silver" }}
-      >
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Typography variant="h7" sx={{ color: "#4f4e4d", marginRight: "10px" }}>
         Welcome, {user.name}
       </Typography>
 
       <Button
-        // variant=""
         type="button"
         startIcon={<LogoutIcon fontSize="small" />}
         onClick={() => {
           dispatch(logOut());
         }}
-        // color="white"
-        // color="ochre"
       >
         Logout
       </Button>
-      {/* </AppBar> */}
-      {/* </Box> */}
 
       <p className={css.username}></p>
-    </div>
+    </Box>
   );
 }

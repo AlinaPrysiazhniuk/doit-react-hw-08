@@ -1,7 +1,3 @@
-import css from "./Contact.module.css";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { IoMdContact } from "react-icons/io";
-
 import ModalContact from "../../components/Modal/Modal";
 import Modal from "react-modal";
 import { useState } from "react";
@@ -10,6 +6,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import PhoneIcon from "@mui/icons-material/Phone";
+import PersonIcon from "@mui/icons-material/Person";
 
 const theme = createTheme({
   palette: {
@@ -58,24 +57,42 @@ export default function Contact({ contact }) {
     <Box
       sx={{
         backgroundColor: "#f2f1f0",
-        padding: "6px",
         borderRadius: "8px",
+        padding: "10px",
         display: "flex",
-        justifyContent: "space-around",
-        // alignItems: "center",
-        gap: "40px",
+        justifyContent: "space-between",
+        // gap: "40px",
+        border: "1px solid #b0aeac",
+        width: "400px",
       }}
     >
       <ThemeProvider theme={theme}>
         <Box>
-          <p className={css.item_info}>
-            <IoMdContact className={css.icon_man} />
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#524f4e",
+              fontWeight: "600",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <PersonIcon />
             {contact.name}
-          </p>
-          <p className={css.item_info}>
-            <BsFillTelephoneFill className={css.icon_number} />
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#524f4e",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <PhoneIcon />
             {contact.number}
-          </p>
+          </Typography>
         </Box>
 
         <Button

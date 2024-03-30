@@ -1,44 +1,52 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import AppBar from "@mui/material/AppBar";
+// import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import css from "./Navigation.module.css";
 
 export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <nav className={css.nav}>
-      {/* <Box sx={{ flexGrow: 1, width: "300px" }}> */}
-      {/* <AppBar position="static"> */}
+    <Box sx={{ display: "flex", gap: "15px" }}>
       <NavLink
         to="/"
         style={{
-          fontSize: 20,
-          color: "Orange",
-          // marginRight: 20,
           textDecoration: "none",
         }}
       >
-        <Typography variant="h6" sx={{ flexGrow: 2 }}>
+        <Typography
+          sx={{
+            fontSize: 24,
+            flexGrow: 2,
+            color: "#4f4e4d",
+            fontWeight: "600",
+          }}
+        >
           Home
         </Typography>
       </NavLink>
+
       {isLoggedIn && (
         <NavLink
           to="/contacts"
-          style={{ fontSize: 20, color: "Orange", textDecoration: "none" }}
+          style={{
+            textDecoration: "none",
+          }}
         >
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography
+            sx={{
+              fontSize: 24,
+              flexGrow: 2,
+              color: "#4f4e4d",
+              fontWeight: "600",
+            }}
+          >
             Contacts
           </Typography>
         </NavLink>
       )}
-      {/* </AppBar> */}
-      {/* </Box> */}
-    </nav>
+    </Box>
   );
 }
