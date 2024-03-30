@@ -24,7 +24,7 @@ export default function Login() {
         sx={{
           marginTop: "10px",
           backgroundColor: "#f2f1f0",
-          padding: "10px",
+          padding: "15px",
           borderRadius: "8px",
           display: "flex",
           justifyContent: "space-around",

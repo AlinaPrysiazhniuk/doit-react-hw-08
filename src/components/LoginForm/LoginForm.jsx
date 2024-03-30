@@ -18,7 +18,7 @@ export default function LoginForm() {
     <Box
       sx={{
         backgroundColor: "#f2f1f0",
-        padding: "15px",
+        padding: "20px",
         borderRadius: "8px",
       }}
     >
