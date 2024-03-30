@@ -61,8 +61,9 @@ export default function Contact({ contact }) {
         padding: "10px",
         display: "flex",
         justifyContent: "space-between",
-        border: "1px solid #b0aeac",
+        border: "1px solid #a2a3a3",
         width: "400px",
+        alignItems: "center",
       }}
     >
       <ThemeProvider theme={theme}>
@@ -100,6 +101,7 @@ export default function Contact({ contact }) {
           startIcon={<DeleteIcon fontSize="small" />}
           onClick={handleDelete}
           color="ochre"
+          sx={{ height: "35px" }}
         >
           Delete
         </Button>

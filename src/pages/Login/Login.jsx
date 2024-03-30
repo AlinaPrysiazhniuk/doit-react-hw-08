@@ -1,6 +1,6 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
-// import { Link } from "react-router-dom";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
+// import { Link } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ArrowCircleRightSharpIcon from "@mui/icons-material/ArrowCircleRightSharp";
@@ -46,9 +46,11 @@ export default function Login() {
           variant="body1"
           underline="none"
           to="/register"
-          sx={{
+          style={{
             display: "flex",
             gap: "10px",
+            textDecoration: "none",
+            color: "#2a8ac9",
           }}
         >
           <ArrowCircleRightSharpIcon />

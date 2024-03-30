@@ -39,6 +39,7 @@ export default function RegistrationForm() {
             display: "flex",
             flexDirection: "column",
             gap: "20px",
+            fontWeight: "600",
           }}
           autoComplete="off"
         >

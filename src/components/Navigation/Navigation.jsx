@@ -16,7 +16,7 @@ export default function Navigation() {
       >
         <Typography
           sx={{
-            fontSize: 24,
+            fontSize: 22,
             flexGrow: 2,
             color: "#4f4e4d",
             fontWeight: "600",
@@ -44,7 +44,7 @@ export default function Navigation() {
           >
             <Typography
               sx={{
-                fontSize: 24,
+                fontSize: 22,
                 flexGrow: 2,
                 color: "#4f4e4d",
                 fontWeight: "600",
