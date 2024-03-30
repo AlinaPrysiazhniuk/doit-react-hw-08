@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <div className={css.container}>
         <h2 className={css.title}>
-          Task manager welcome page{" "}
+          Contacts book ..... (description)
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
           </span>
