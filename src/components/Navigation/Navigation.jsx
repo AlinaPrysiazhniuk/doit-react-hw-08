@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-// import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 export default function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);

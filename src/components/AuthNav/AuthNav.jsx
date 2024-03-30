@@ -20,7 +20,7 @@ export default function AuthNav() {
         <Typography
           sx={{
             fontSize: 18,
-            color: "#4f4e4d",
+            color: "#737270",
             fontWeight: "600",
           }}
         >
@@ -36,7 +36,7 @@ export default function AuthNav() {
         <Typography
           sx={{
             fontSize: 18,
-            color: "#4f4e4d",
+            color: "#737270",
             fontWeight: "600",
           }}
         >
