@@ -4,9 +4,12 @@ import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import useId from "@mui/material/utils/useId";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
+  const mailId = useId();
+  const passwordId = useId();
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values));
     actions.resetForm();
@@ -49,24 +52,29 @@ export default function LoginForm() {
             }}
           >
             <label
-              style={{ display: "flex", flexDirection: " column", gap: "4px" }}
+              htmlFor={mailId}
+              style={{
+                display: "flex",
+                flexDirection: " column",
+                gap: "4px",
+              }}
             >
               Email
-              <Field type="email" name="email">
-                {({ field }) => (
-                  <TextField
-                    sx={{
-                      backgroundColor: "#f5f8fa",
-                    }}
-                    {...field}
-                    // id={nameId}
-
-                    label="Enter your email"
-                    defaultValue="Default Value"
-                  />
-                )}
-              </Field>
             </label>
+            <Field type="email" name="email">
+              {({ field }) => (
+                <TextField
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                    width: "320px",
+                  }}
+                  {...field}
+                  id={mailId}
+                  label="Enter your email"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
           </Box>
 
           <Box
@@ -80,24 +88,26 @@ export default function LoginForm() {
             }}
           >
             <label
+              htmlFor={passwordId}
               style={{ display: "flex", flexDirection: " column", gap: "4px" }}
             >
-              Password
-              <Field type="password" name="password">
-                {({ field }) => (
-                  <TextField
-                    sx={{
-                      backgroundColor: "#f5f8fa",
-                    }}
-                    {...field}
-                    // id={nameId}
-
-                    label="Enter password"
-                    defaultValue="Default Value"
-                  />
-                )}
-              </Field>
+              Password{" "}
             </label>
+            <Field type="password" name="password">
+              {({ field }) => (
+                <TextField
+                  id={passwordId}
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
+                  {...field}
+                  // id={nameId}
+
+                  label="Enter password"
+                  defaultValue="Default Value"
+                />
+              )}
+            </Field>
           </Box>
           <Button
             variant="outlined"
