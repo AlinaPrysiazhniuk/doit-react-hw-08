@@ -5,6 +5,7 @@ import { IoMdContact } from "react-icons/io";
 import ModalContact from "../../components/Modal/Modal";
 import Modal from "react-modal";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 const customStyles = {
   content: {
@@ -54,9 +55,11 @@ export default function Contact({ contact }) {
         </p>
       </div>
 
-      <button type="button" className={css.btn_delete} onClick={handleDelete}>
+      {/* <button type="button" className={css.btn_delete}></button> */}
+
+      <Button variant="contained" type="button" onClick={handleDelete}>
         Delete
-      </button>
+      </Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
