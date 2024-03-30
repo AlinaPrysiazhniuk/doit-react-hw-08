@@ -9,6 +9,7 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 
 const theme = createTheme({
   palette: {
@@ -54,36 +55,48 @@ export default function Contact({ contact }) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <p className={css.item_info}>
-          <IoMdContact className={css.icon_man} />
-          {contact.name}
-        </p>
-        <p className={css.item_info}>
-          <BsFillTelephoneFill className={css.icon_number} />
-          {contact.number}
-        </p>
-      </div>
+    <Box
+      sx={{
+        backgroundColor: "#f2f1f0",
+        padding: "6px",
+        borderRadius: "8px",
+        display: "flex",
+        justifyContent: "space-around",
+        // alignItems: "center",
+        gap: "40px",
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <Box>
+          <p className={css.item_info}>
+            <IoMdContact className={css.icon_man} />
+            {contact.name}
+          </p>
+          <p className={css.item_info}>
+            <BsFillTelephoneFill className={css.icon_number} />
+            {contact.number}
+          </p>
+        </Box>
 
-      <Button
-        variant="outlined"
-        type="button"
-        startIcon={<DeleteIcon fontSize="small" />}
-        onClick={handleDelete}
-        color="ochre"
-      >
-        Delete
-      </Button>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {<ModalContact contact={contact} />}
-      </Modal>
-    </ThemeProvider>
+        <Button
+          variant="outlined"
+          type="button"
+          startIcon={<DeleteIcon fontSize="small" />}
+          onClick={handleDelete}
+          color="ochre"
+        >
+          Delete
+        </Button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          {<ModalContact contact={contact} />}
+        </Modal>
+      </ThemeProvider>
+    </Box>
   );
 }
 

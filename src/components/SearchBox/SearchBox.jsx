@@ -8,7 +8,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Input from "@mui/material/Input";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-//
+import PersonSearchOutlinedIcon from "@mui/icons-material/PersonSearchOutlined";
+
 export default function SearchContact() {
   const searchBoxId = useId();
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function SearchContact() {
         onChange={valueChange}
         startAdornment={
           <InputAdornment position="start">
-            <AccountCircle />
+            <PersonSearchOutlinedIcon />
           </InputAdornment>
         }
       />

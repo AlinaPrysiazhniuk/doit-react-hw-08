@@ -8,7 +8,6 @@ import { addContact } from "../../redux/contacts/contactsOps";
 import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const initialValues = {
