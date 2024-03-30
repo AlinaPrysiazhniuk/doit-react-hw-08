@@ -19,37 +19,39 @@ function App() {
   useEffect(() => {
     dispath(refreshUser());
   }, [dispath]);
-  return isRefreshing ? (
-    <b>Refreshing user, please wait....</b>
-  ) : (
+  return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="register"
-            element={
-              <RestrictedRoute
-                component={<Register />}
-                redirectTo="/contacts"
-              />
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <RestrictedRoute component={<Login />} redirectTo="/contacts" />
-            }
-          />
+      {isRefreshing ? (
+        <b>Refreshing user, please wait....</b>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="register"
+              element={
+                <RestrictedRoute
+                  component={<Register />}
+                  redirectTo="/contacts"
+                />
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+              }
+            />
 
-          <Route
-            path="contacts"
-            element={
-              <PrivateRoute component={<Contacts />} redirectTo="/login" />
-            }
-          />
-        </Route>
-      </Routes>
+            <Route
+              path="contacts"
+              element={
+                <PrivateRoute component={<Contacts />} redirectTo="/login" />
+              }
+            />
+          </Route>
+        </Routes>
+      )}
     </>
   );
 }
