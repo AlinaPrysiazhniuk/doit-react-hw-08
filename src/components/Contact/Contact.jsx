@@ -12,52 +12,53 @@ import PersonIcon from "@mui/icons-material/Person";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/contactsOps";
+import EditForm from "./EditForm";
 // import { Form } from "react-router-dom";
 
-export const ContactEditor = ({ initialValue, contact, onClose }) => {
-  const [number, setNumber] = useState(initialValue);
-  const dispatch = useDispatch();
+// export const ContactEditor = ({ initialValue, contact, onClose }) => {
+//   const [number, setNumber] = useState(initialValue);
+//   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    setNumber(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(
-      updateContact({
-        name: contact.name,
-        number,
-        id: contact.id,
-      })
-    )
-      .unwrap()
-      .then(onClose);
-  };
+//   const handleChange = (e) => {
+//     setNumber(e.target.value);
+//   };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     dispatch(
+//       updateContact({
+//         name: contact.name,
+//         number,
+//         id: contact.id,
+//       })
+//     )
+//       .unwrap()
+//       .then(onClose);
+//   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <TextareaAutosize
-        minRows={1}
-        sx={{
-          backgroundColor: "#f5f8fa",
-          width: "200px",
-        }}
-        value={number}
-        onChange={handleChange}
-      />
-      <Button
-        variant="outlined"
-        type="submit"
-        // startIcon={<DeleteIcon fontSize="small" />}
-        // onClick={handleDelete}
-        color="ochre"
-        sx={{ height: "30px" }}
-      >
-        Save
-      </Button>
-    </form>
-  );
-};
+//   // return (
+//   // <form onSubmit={handleSubmit}>
+//   //   <TextareaAutosize
+//   //     minRows={1}
+//   //     sx={{
+//   //       backgroundColor: "#f5f8fa",
+//   //       width: "200px",
+//   //     }}
+//   //     value={number}
+//   //     onChange={handleChange}
+//   //   />
+//   //   <Button
+//   //     variant="outlined"
+//   //     type="submit"
+//   //     // startIcon={<DeleteIcon fontSize="small" />}
+//   //     // onClick={handleDelete}
+//   //     color="ochre"
+//   //     sx={{ height: "30px" }}
+//   //   >
+//   //     Save
+//   //   </Button>
+//   // </form>
+//   // <EditForm onSubmit={handleSubmit} />
+// };
 
 const theme = createTheme({
   palette: {
@@ -91,6 +92,9 @@ export default function Contact({ contact }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  const [values, setValues] = useState({});
+  const dispatch = useDispatch();
+
   function openModal() {
     setIsOpen(true);
   }
@@ -101,6 +105,25 @@ export default function Contact({ contact }) {
 
   const handleDelete = () => {
     openModal();
+  };
+
+  const handleSubmit = (values) => {
+    setValues(values);
+    console.log(values);
+
+    // e.preventDefault();
+    dispatch(
+      updateContact({
+        ...values,
+        id: contact.id,
+      })
+    )
+      .unwrap()
+      .then(onClose);
+  };
+
+  const onClose = () => {
+    setIsEditing(false);
   };
 
   return (
@@ -116,13 +139,14 @@ export default function Contact({ contact }) {
         alignItems: "center",
       }}
     >
+      {isEditing && <EditForm contact={contact} onSubmit={handleSubmit} />}
+
       <ThemeProvider theme={theme}>
         <Box>
-          {/* <Typography
+          <Typography
             sx={{
               fontSize: "16px",
               color: "#524f4e",
-              fontWeight: "600",
               display: "flex",
               alignItems: "center",
               gap: "10px",
@@ -130,49 +154,28 @@ export default function Contact({ contact }) {
           >
             <PersonIcon />
             {contact.name}
-          </Typography> */}
+          </Typography>
 
-          {isEditing ? (
-            <ContactEditor
-              initialValue={contact.name}
-              contact={contact}
-              onClose={() => setIsEditing(false)}
-            />
-          ) : (
-            <Typography
-              sx={{
-                fontSize: "16px",
-                color: "#524f4e",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <PersonIcon />
-              {contact.name}
-            </Typography>
-          )}
-
-          {isEditing ? (
+          {/* {isEditing ? (
             <ContactEditor
               initialValue={contact.number}
               contact={contact}
               onClose={() => setIsEditing(false)}
             />
-          ) : (
-            <Typography
-              sx={{
-                fontSize: "16px",
-                color: "#524f4e",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <PhoneIcon />
-              {contact.number}
-            </Typography>
-          )}
+          ) : ( */}
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#524f4e",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <PhoneIcon />
+            {contact.number}
+          </Typography>
+          {/* )} */}
         </Box>
 
         <Button
