@@ -3,8 +3,6 @@ import { deleteContact } from "../../redux/contacts/contactsOps";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function ModalContact({ contact }) {
-  console.log("open");
-
   const dispatch = useDispatch();
 
   const handleDelete = () => {

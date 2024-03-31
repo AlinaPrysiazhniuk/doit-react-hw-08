@@ -12,6 +12,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/contactsOps";
 import EditForm from "./EditForm";
+import ModalEdit from "../Modal/ModalEdit";
 
 const theme = createTheme({
   palette: {
@@ -141,6 +142,7 @@ export default function Contact({ contact }) {
             onClick={() => {
               setIsEditing(true);
               setIsVisible(false);
+              // openModal();
             }}
             color="ochre"
             sx={{ height: "35px" }}
@@ -169,6 +171,7 @@ export default function Contact({ contact }) {
           contentLabel="Example Modal"
         >
           {<ModalContact contact={contact} />}
+          {/* {<ModalEdit form={<EditForm />} />} */}
         </Modal>
       </ThemeProvider>
     </Box>

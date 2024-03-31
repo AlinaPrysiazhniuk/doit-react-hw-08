@@ -32,7 +32,13 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        marginTop: "10px",
+        padding: "10px",
+        borderRadius: "8px",
+      }}
+    >
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -99,6 +105,6 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
         </Form>
       </Formik>
       <Toaster />
-    </>
+    </Box>
   );
 }
