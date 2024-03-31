@@ -97,50 +97,41 @@ export default function Contact({ contact }) {
         alignItems: "center",
       }}
     >
-      {isEditing && (
-        <EditForm
-          contact={contact}
-          onSubmit={handleSubmit}
-          visibleBtnEdit={visibleBtnEdit}
-        />
-      )}
-
       <ThemeProvider theme={theme}>
-        <Box>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              color: "#524f4e",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <PersonIcon />
-            {contact.name}
-          </Typography>
-
-          {/* {isEditing ? (
-            <ContactEditor
-              initialValue={contact.number}
-              contact={contact}
-              onClose={() => setIsEditing(false)}
-            />
-          ) : ( */}
-          <Typography
-            sx={{
-              fontSize: "16px",
-              color: "#524f4e",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <PhoneIcon />
-            {contact.number}
-          </Typography>
-          {/* )} */}
-        </Box>
+        {isEditing ? (
+          <EditForm
+            contact={contact}
+            onSubmit={handleSubmit}
+            visibleBtnEdit={visibleBtnEdit}
+          />
+        ) : (
+          <Box>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#524f4e",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <PersonIcon />
+              {contact.name}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#524f4e",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <PhoneIcon />
+              {contact.number}
+            </Typography>
+          </Box>
+        )}
 
         {isVisible && (
           <Button
@@ -158,16 +149,19 @@ export default function Contact({ contact }) {
           </Button>
         )}
 
-        <Button
-          variant="outlined"
-          type="button"
-          startIcon={<DeleteIcon fontSize="small" />}
-          onClick={handleDelete}
-          color="ochre"
-          sx={{ height: "35px" }}
-        >
-          Delete
-        </Button>
+        {!isEditing && (
+          <Button
+            variant="outlined"
+            type="button"
+            startIcon={<DeleteIcon fontSize="small" />}
+            onClick={handleDelete}
+            color="ochre"
+            sx={{ height: "35px" }}
+          >
+            Delete
+          </Button>
+        )}
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}

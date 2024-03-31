@@ -32,17 +32,7 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
   };
 
   return (
-    <Box
-      sx={{
-        marginTop: "10px",
-        // backgroundColor: "#f2f1f0",
-        padding: "10px",
-        borderRadius: "8px",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
-    >
+    <>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -56,8 +46,9 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
             padding: "20px",
             display: "flex",
             flexDirection: "column",
+
             gap: "15px",
-            alignItems: "center",
+            alignItems: "stretch",
             color: "#524f4e",
             fontWeight: "600",
           }}
@@ -108,6 +99,6 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
         </Form>
       </Formik>
       <Toaster />
-    </Box>
+    </>
   );
 }
