@@ -51,67 +51,93 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
-        <Form
-          style={{
-            border: "1.5px solid #a2a3a3",
-            borderRadius: "5px",
-            width: "280px",
-            padding: "20px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-            alignItems: "center",
-            color: "#524f4e",
-            fontWeight: "600",
-          }}
-        >
-          <Box
-            sx={{
+        {({ isValid, dirty }) => (
+          <Form
+            style={{
+              border: "1.5px solid #a2a3a3",
+              borderRadius: "5px",
+              width: "280px",
+              padding: "20px",
               display: "flex",
               flexDirection: "column",
-              gap: "4px",
-              width: "100%",
+              gap: "15px",
+              alignItems: "center",
+              color: "#524f4e",
+              fontWeight: "600",
+              backgroundColor: "#d5d9db",
             }}
           >
-            <label htmlFor={nameId}>Name</label>
-            <Field name="name">
-              {({ field }) => (
-                <TextField
-                  {...field}
-                  id={nameId}
-                  label="Enter valid name"
-                  defaultValue="Default Value"
-                />
-              )}
-            </Field>
-            <ErrorMessage name="name" component="span" className={css.error} />
-          </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+                width: "100%",
+              }}
+            >
+              <label htmlFor={nameId}>Name</label>
+              <Field name="name">
+                {({ field }) => (
+                  <TextField
+                    sx={{
+                      backgroundColor: "#e8eced",
+                      border: "1px solid #edf9fc",
+                      borderRadius: "5px",
+                    }}
+                    {...field}
+                    id={nameId}
+                    label="Enter valid name"
+                    value={field.value}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="name"
+                component="span"
+                className={css.error}
+              />
+            </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "4px",
-              width: "100%",
-            }}
-          >
-            <label htmlFor={phoneId}>Number</label>
-            <Field name="number">
-              {({ field }) => (
-                <TextField {...field} id={phoneId} label="Enter valid number" />
-              )}
-            </Field>
-            <ErrorMessage
-              name="number"
-              component="span"
-              className={css.error}
-            />
-          </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+                width: "100%",
+              }}
+            >
+              <label htmlFor={phoneId}>Number</label>
+              <Field name="number">
+                {({ field }) => (
+                  <TextField
+                    sx={{
+                      backgroundColor: "#e8eced",
+                      border: "1px solid #edf9fc",
+                      borderRadius: "5px",
+                    }}
+                    {...field}
+                    id={phoneId}
+                    label={"Enter valid number"}
+                    value={field.value}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="number"
+                component="span"
+                className={css.error}
+              />
+            </Box>
 
-          <Button variant="outlined" type="submit">
-            Add contact
-          </Button>
-        </Form>
+            <Button
+              variant="outlined"
+              type="submit"
+              disabled={!dirty || !isValid}
+            >
+              Add contact
+            </Button>
+          </Form>
+        )}
       </Formik>
       <Toaster />
     </Box>

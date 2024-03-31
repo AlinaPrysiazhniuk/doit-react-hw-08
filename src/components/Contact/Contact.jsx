@@ -13,11 +13,15 @@ import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/contactsOps";
 import EditForm from "./EditForm";
 import ModalEdit from "../Modal/ModalEdit";
+import BorderColorTwoToneIcon from "@mui/icons-material/BorderColorTwoTone";
 
 const theme = createTheme({
   palette: {
     ochre: {
       main: "#e36f71",
+    },
+    edit: {
+      main: "#188c25",
     },
   },
 });
@@ -29,7 +33,7 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     transform: "translate(-50%, -50%)",
-    width: "300px",
+    width: "400px",
     heigth: "400px",
   },
   overlay: {
@@ -43,23 +47,41 @@ const customStyles = {
 Modal.setAppElement("#modal");
 
 export default function Contact({ contact }) {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalContactIsOpen, setModalContactIsOpen] = useState(false);
+  const [modalEditIsOpen, setModalEditIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  // const [qwe, setQwe] = useState(false);
+  // const [qwe1, setQwe1] = useState(false);
 
   const [values, setValues] = useState({});
   const dispatch = useDispatch();
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
+  const openModalContact = () => {
+    setModalContactIsOpen(true);
+  };
+
+  const openModalEdit = () => {
+    setModalEditIsOpen(true);
+  };
+
+  const closeModalContact = () => {
+    setModalContactIsOpen(false);
+  };
+
+  const closeModalEdit = () => {
+    setModalEditIsOpen(false);
+  };
 
   const handleDelete = () => {
-    openModal();
+    openModalContact();
   };
 
   const handleSubmit = (values) => {
@@ -79,11 +101,12 @@ export default function Contact({ contact }) {
 
   const onClose = () => {
     setIsEditing(false);
+    // setIsVisible(true);
   };
 
-  const visibleBtnEdit = () => {
-    setIsVisible(true);
-  };
+  // const visibleBtnEdit = () => {
+  //   setIsVisible(true);
+  // };
 
   return (
     <Box
@@ -99,79 +122,88 @@ export default function Contact({ contact }) {
       }}
     >
       <ThemeProvider theme={theme}>
-        {isEditing ? (
+        {/* {isEditing ? (
           <EditForm
             contact={contact}
             onSubmit={handleSubmit}
             visibleBtnEdit={visibleBtnEdit}
           />
-        ) : (
-          <Box>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                color: "#524f4e",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <PersonIcon />
-              {contact.name}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                color: "#524f4e",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <PhoneIcon />
-              {contact.number}
-            </Typography>
-          </Box>
-        )}
-
-        {isVisible && (
-          <Button
-            variant="outlined"
-            type="button"
-            startIcon={<DeleteIcon fontSize="small" />}
-            onClick={() => {
-              setIsEditing(true);
-              setIsVisible(false);
-              // openModal();
+        ) : ( */}
+        <Box sx={{ width: "200px" }}>
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#524f4e",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
             }}
-            color="ochre"
-            sx={{ height: "35px" }}
           >
-            Edit
-          </Button>
-        )}
+            <PersonIcon />
+            {contact.name}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "16px",
+              color: "#524f4e",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <PhoneIcon />
+            {contact.number}
+          </Typography>
+        </Box>
+        {/* )} */}
 
-        {!isEditing && (
-          <Button
-            variant="outlined"
-            type="button"
-            startIcon={<DeleteIcon fontSize="small" />}
-            onClick={handleDelete}
-            color="ochre"
-            sx={{ height: "35px" }}
-          >
-            Delete
-          </Button>
-        )}
+        <Button
+          variant="outlined"
+          type="button"
+          startIcon={<BorderColorTwoToneIcon fontSize="small" />}
+          onClick={() => {
+            setIsEditing(true);
+            setIsVisible(false);
+            // setQwe1(true);
+            openModalEdit();
+          }}
+          color="edit"
+          sx={{ height: "35px", alignItems: "stretch", marginRight: "10px" }}
+        >
+          Edit
+        </Button>
+
+        <Button
+          variant="outlined"
+          type="button"
+          startIcon={<DeleteIcon fontSize="small" />}
+          onClick={handleDelete}
+          color="ochre"
+          sx={{ height: "35px", alignItems: "stretch" }}
+        >
+          Delete
+        </Button>
 
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          isOpen={modalContactIsOpen}
+          onRequestClose={closeModalContact}
           style={customStyles}
           contentLabel="Example Modal"
         >
           {<ModalContact contact={contact} />}
-          {/* {<ModalEdit form={<EditForm />} />} */}
+        </Modal>
+
+        <Modal
+          isOpen={modalEditIsOpen}
+          onRequestClose={closeModalEdit}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <EditForm
+            contact={contact}
+            onSubmit={handleSubmit}
+            close={closeModalEdit}
+          />
         </Modal>
       </ThemeProvider>
     </Box>

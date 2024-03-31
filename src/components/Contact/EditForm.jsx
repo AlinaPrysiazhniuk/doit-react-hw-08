@@ -20,7 +20,7 @@ const ContactSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
+export default function EditForm({ contact, onSubmit, close }) {
   const initialValues = {
     name: contact.name,
     number: contact.number,
@@ -28,7 +28,8 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
 
   const handleSubmit = (values) => {
     onSubmit(values);
-    visibleBtnEdit();
+    close();
+    // visibleBtnEdit();
   };
 
   return (
@@ -37,6 +38,8 @@ export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
         marginTop: "10px",
         padding: "10px",
         borderRadius: "8px",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       <Formik
