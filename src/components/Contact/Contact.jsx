@@ -9,56 +9,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PhoneIcon from "@mui/icons-material/Phone";
 import PersonIcon from "@mui/icons-material/Person";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/contactsOps";
 import EditForm from "./EditForm";
-// import { Form } from "react-router-dom";
-
-// export const ContactEditor = ({ initialValue, contact, onClose }) => {
-//   const [number, setNumber] = useState(initialValue);
-//   const dispatch = useDispatch();
-
-//   const handleChange = (e) => {
-//     setNumber(e.target.value);
-//   };
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(
-//       updateContact({
-//         name: contact.name,
-//         number,
-//         id: contact.id,
-//       })
-//     )
-//       .unwrap()
-//       .then(onClose);
-//   };
-
-//   // return (
-//   // <form onSubmit={handleSubmit}>
-//   //   <TextareaAutosize
-//   //     minRows={1}
-//   //     sx={{
-//   //       backgroundColor: "#f5f8fa",
-//   //       width: "200px",
-//   //     }}
-//   //     value={number}
-//   //     onChange={handleChange}
-//   //   />
-//   //   <Button
-//   //     variant="outlined"
-//   //     type="submit"
-//   //     // startIcon={<DeleteIcon fontSize="small" />}
-//   //     // onClick={handleDelete}
-//   //     color="ochre"
-//   //     sx={{ height: "30px" }}
-//   //   >
-//   //     Save
-//   //   </Button>
-//   // </form>
-//   // <EditForm onSubmit={handleSubmit} />
-// };
 
 const theme = createTheme({
   palette: {
@@ -91,6 +44,7 @@ Modal.setAppElement("#modal");
 export default function Contact({ contact }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const [values, setValues] = useState({});
   const dispatch = useDispatch();
@@ -126,6 +80,10 @@ export default function Contact({ contact }) {
     setIsEditing(false);
   };
 
+  const visibleBtnEdit = () => {
+    setIsVisible(true);
+  };
+
   return (
     <Box
       sx={{
@@ -139,7 +97,13 @@ export default function Contact({ contact }) {
         alignItems: "center",
       }}
     >
-      {isEditing && <EditForm contact={contact} onSubmit={handleSubmit} />}
+      {isEditing && (
+        <EditForm
+          contact={contact}
+          onSubmit={handleSubmit}
+          visibleBtnEdit={visibleBtnEdit}
+        />
+      )}
 
       <ThemeProvider theme={theme}>
         <Box>
@@ -178,18 +142,21 @@ export default function Contact({ contact }) {
           {/* )} */}
         </Box>
 
-        <Button
-          variant="outlined"
-          type="button"
-          startIcon={<DeleteIcon fontSize="small" />}
-          onClick={() => {
-            setIsEditing(true);
-          }}
-          color="ochre"
-          sx={{ height: "35px" }}
-        >
-          Edit
-        </Button>
+        {isVisible && (
+          <Button
+            variant="outlined"
+            type="button"
+            startIcon={<DeleteIcon fontSize="small" />}
+            onClick={() => {
+              setIsEditing(true);
+              setIsVisible(false);
+            }}
+            color="ochre"
+            sx={{ height: "35px" }}
+          >
+            Edit
+          </Button>
+        )}
 
         <Button
           variant="outlined"

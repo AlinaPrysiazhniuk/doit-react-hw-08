@@ -39,7 +39,6 @@ export default function ContactForm() {
     <Box
       sx={{
         marginTop: "10px",
-        // backgroundColor: "#f2f1f0",
         padding: "10px",
         borderRadius: "8px",
         display: "flex",

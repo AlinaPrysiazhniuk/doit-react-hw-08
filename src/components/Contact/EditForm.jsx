@@ -20,7 +20,7 @@ const ContactSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function EditForm({ contact, onSubmit }) {
+export default function EditForm({ contact, onSubmit, visibleBtnEdit }) {
   const initialValues = {
     name: contact.name,
     number: contact.number,
@@ -28,6 +28,7 @@ export default function EditForm({ contact, onSubmit }) {
 
   const handleSubmit = (values) => {
     onSubmit(values);
+    visibleBtnEdit();
   };
 
   return (
