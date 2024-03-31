@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/contactsOps";
 // import { Form } from "react-router-dom";
 
-export const ContactEditor = ({ initialValue, contactId, onClose }) => {
+export const ContactEditor = ({ initialValue, contact, onClose }) => {
   const [number, setNumber] = useState(initialValue);
   const dispatch = useDispatch();
 
@@ -25,8 +25,9 @@ export const ContactEditor = ({ initialValue, contactId, onClose }) => {
     e.preventDefault();
     dispatch(
       updateContact({
+        name: contact.name,
         number,
-        id: contactId,
+        id: contact.id,
       })
     )
       .unwrap()
@@ -134,14 +135,11 @@ export default function Contact({ contact }) {
           {isEditing ? (
             <ContactEditor
               initialValue={contact.number}
-              contactId={contact.id}
+              contact={contact}
               onClose={() => setIsEditing(false)}
             />
           ) : (
             <Typography
-              onClick={() => {
-                setIsEditing(true);
-              }}
               sx={{
                 fontSize: "16px",
                 color: "#524f4e",
@@ -155,6 +153,19 @@ export default function Contact({ contact }) {
             </Typography>
           )}
         </Box>
+
+        <Button
+          variant="outlined"
+          type="button"
+          startIcon={<DeleteIcon fontSize="small" />}
+          onClick={() => {
+            setIsEditing(true);
+          }}
+          color="ochre"
+          sx={{ height: "35px" }}
+        >
+          Edit
+        </Button>
 
         <Button
           variant="outlined"
