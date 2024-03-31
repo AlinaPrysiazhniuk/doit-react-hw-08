@@ -118,7 +118,7 @@ export default function Contact({ contact }) {
     >
       <ThemeProvider theme={theme}>
         <Box>
-          <Typography
+          {/* <Typography
             sx={{
               fontSize: "16px",
               color: "#524f4e",
@@ -130,7 +130,28 @@ export default function Contact({ contact }) {
           >
             <PersonIcon />
             {contact.name}
-          </Typography>
+          </Typography> */}
+
+          {isEditing ? (
+            <ContactEditor
+              initialValue={contact.name}
+              contact={contact}
+              onClose={() => setIsEditing(false)}
+            />
+          ) : (
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#524f4e",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <PersonIcon />
+              {contact.name}
+            </Typography>
+          )}
 
           {isEditing ? (
             <ContactEditor
