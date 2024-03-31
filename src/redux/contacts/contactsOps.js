@@ -39,3 +39,15 @@ export const addContact = createAsyncThunk(
     }
   }
 );
+
+export const updateContact = createAsyncThunk(
+  "contacts/updateContact",
+  async ({ number, id }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/contacts/${id}`, { number });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -9,6 +9,54 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PhoneIcon from "@mui/icons-material/Phone";
 import PersonIcon from "@mui/icons-material/Person";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import { useDispatch } from "react-redux";
+import { updateContact } from "../../redux/contacts/contactsOps";
+// import { Form } from "react-router-dom";
+
+export const ContactEditor = ({ initialValue, contactId, onClose }) => {
+  const [number, setNumber] = useState(initialValue);
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setNumber(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      updateContact({
+        number,
+        id: contactId,
+      })
+    )
+      .unwrap()
+      .then(onClose);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextareaAutosize
+        minRows={1}
+        sx={{
+          backgroundColor: "#f5f8fa",
+          width: "200px",
+        }}
+        value={number}
+        onChange={handleChange}
+      />
+      <Button
+        variant="outlined"
+        type="submit"
+        // startIcon={<DeleteIcon fontSize="small" />}
+        // onClick={handleDelete}
+        color="ochre"
+        sx={{ height: "30px" }}
+      >
+        Save
+      </Button>
+    </form>
+  );
+};
 
 const theme = createTheme({
   palette: {
@@ -40,6 +88,7 @@ Modal.setAppElement("#modal");
 
 export default function Contact({ contact }) {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -81,18 +130,30 @@ export default function Contact({ contact }) {
             <PersonIcon />
             {contact.name}
           </Typography>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              color: "#524f4e",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <PhoneIcon />
-            {contact.number}
-          </Typography>
+
+          {isEditing ? (
+            <ContactEditor
+              initialValue={contact.number}
+              contactId={contact.id}
+              onClose={() => setIsEditing(false)}
+            />
+          ) : (
+            <Typography
+              onClick={() => {
+                setIsEditing(true);
+              }}
+              sx={{
+                fontSize: "16px",
+                color: "#524f4e",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <PhoneIcon />
+              {contact.number}
+            </Typography>
+          )}
         </Box>
 
         <Button
