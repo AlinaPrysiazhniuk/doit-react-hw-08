@@ -82,7 +82,6 @@ export default function Login() {
         </Link>
       </Box>
       {loading && <Loader />}
-      <Toaster />
     </Box>
   );
 }
