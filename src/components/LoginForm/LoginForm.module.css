@@ -14,3 +14,8 @@
   color: #524f4e;
   font-weight: 500;
 }
+
+.error {
+  color: red;
+  text-align: center;
+}

@@ -4,21 +4,37 @@ import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ArrowCircleRightSharpIcon from "@mui/icons-material/ArrowCircleRightSharp";
+import LoginIcon from "@mui/icons-material/Login";
 
 export default function Login() {
   return (
     <Box>
-      <Typography
-        variant="h6"
+      <Box
         sx={{
-          color: "#524f4e",
-          fontSize: "20px",
-          marginBottom: "10px",
+          marginTop: "10px",
+          backgroundColor: "#f2f1f0",
+          padding: "10px",
+          borderRadius: "8px",
         }}
       >
-        Please, log in...
-      </Typography>
-      <LoginForm />
+        <Typography
+          variant="h6"
+          sx={{
+            color: "#524f4e",
+            fontSize: "22px",
+            marginY: "8px",
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            justifyContent: "center",
+            textTransform: "uppercase",
+          }}
+        >
+          Log in <LoginIcon sx={{ fontSize: "30px" }} />
+        </Typography>
+        <LoginForm />
+      </Box>
 
       <Box
         sx={{

@@ -6,6 +6,24 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import { useId } from "react";
+import * as Yup from "yup";
+import { ErrorMessage } from "formik";
+import css from "./RegistrationForm.module.css";
+import OutlinedInput from "@mui/material/OutlinedInput";
+
+const ContactSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too short!")
+    .max(50, "Too long!")
+    .required("Required"),
+  email: Yup.string()
+    .email("Please, enter a valid email address")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(3, "Too short!")
+    .max(50, "Too long!")
+    .required("Password is required"),
+});
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
@@ -17,12 +35,12 @@ export default function RegistrationForm() {
     dispatch(register(values));
     actions.resetForm();
   };
+
   return (
     <Box
       sx={{
         marginTop: "10px",
         backgroundColor: "#f2f1f0",
-
         padding: "20px",
         borderRadius: "8px",
       }}
@@ -34,6 +52,7 @@ export default function RegistrationForm() {
           password: "",
         }}
         onSubmit={handleSubmit}
+        validationSchema={ContactSchema}
       >
         <Form
           style={{
@@ -59,16 +78,17 @@ export default function RegistrationForm() {
             <label htmlFor={nameId}>Username</label>
             <Field name="name">
               {({ field }) => (
-                <TextField
+                <OutlinedInput
                   id={nameId}
                   sx={{
                     backgroundColor: "#f5f8fa",
                   }}
                   {...field}
-                  label="Enter your name"
+                  placeholder="Enter your name"
                 />
               )}
             </Field>
+            <ErrorMessage name="name" component="span" className={css.error} />
           </Box>
           <Box
             sx={{
@@ -88,7 +108,7 @@ export default function RegistrationForm() {
             </label>
             <Field type="email" name="email">
               {({ field }) => (
-                <TextField
+                <OutlinedInput
                   id={mailId}
                   sx={{
                     backgroundColor: "#f5f8fa",
@@ -96,11 +116,12 @@ export default function RegistrationForm() {
                   {...field}
                   // id={nameId}
 
-                  label="Enter your email"
+                  placeholder="Enter your email"
                   // defaultValue="Default Value"
                 />
               )}
             </Field>
+            <ErrorMessage name="email" component="span" className={css.error} />
           </Box>
 
           <Box
@@ -121,16 +142,21 @@ export default function RegistrationForm() {
             </label>
             <Field type="password" name="password">
               {({ field }) => (
-                <TextField
+                <OutlinedInput
                   id={passwordId}
                   sx={{
                     backgroundColor: "#f5f8fa",
                   }}
                   {...field}
-                  label="Enter password"
+                  placeholder="Enter password"
                 />
               )}
             </Field>
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
           </Box>
           <Button
             variant="outlined"

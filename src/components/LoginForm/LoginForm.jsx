@@ -5,6 +5,20 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import useId from "@mui/material/utils/useId";
+import * as Yup from "yup";
+import { ErrorMessage } from "formik";
+import css from "./LoginForm.module.css";
+import OutlinedInput from "@mui/material/OutlinedInput";
+
+const ContactSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Please, enter a valid email address")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(3, "Too short!")
+    .max(50, "Too long!")
+    .required("Password is required"),
+});
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -18,7 +32,7 @@ export default function LoginForm() {
     <Box
       sx={{
         backgroundColor: "#f2f1f0",
-        padding: "20px",
+        padding: "10px",
         borderRadius: "8px",
       }}
     >
@@ -28,6 +42,7 @@ export default function LoginForm() {
           password: "",
         }}
         onSubmit={handleSubmit}
+        validationSchema={ContactSchema}
       >
         <Form
           style={{
@@ -52,17 +67,18 @@ export default function LoginForm() {
             <label htmlFor={mailId}>Email</label>
             <Field type="email" name="email">
               {({ field }) => (
-                <TextField
+                <OutlinedInput
                   sx={{
                     backgroundColor: "#f5f8fa",
                     width: "320px",
                   }}
                   {...field}
                   id={mailId}
-                  label="Enter your email"
+                  placeholder="Enter your email"
                 />
               )}
             </Field>
+            <ErrorMessage name="email" component="span" className={css.error} />
           </Box>
 
           <Box
@@ -78,16 +94,21 @@ export default function LoginForm() {
             <label htmlFor={passwordId}>Password</label>
             <Field type="password" name="password">
               {({ field }) => (
-                <TextField
+                <OutlinedInput
                   id={passwordId}
                   sx={{
                     backgroundColor: "#f5f8fa",
                   }}
                   {...field}
-                  label="Enter password"
+                  placeholder="Enter password"
                 />
               )}
             </Field>
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
           </Box>
           <Button
             variant="outlined"
