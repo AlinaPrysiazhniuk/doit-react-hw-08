@@ -6,7 +6,6 @@ import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import toast, { Toaster } from "react-hot-toast";
-import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -39,7 +38,6 @@ export default function ContactForm() {
   return (
     <Box
       sx={{
-        marginTop: "10px",
         padding: "10px",
         borderRadius: "8px",
         display: "flex",

@@ -3,6 +3,7 @@ import { deleteContact } from "../../redux/contacts/operations";
 import toast, { Toaster } from "react-hot-toast";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
+import ErrorIcon from "@mui/icons-material/Error";
 
 export default function ModalContact({ contact, close }) {
   const dispatch = useDispatch();
@@ -22,17 +23,28 @@ export default function ModalContact({ contact, close }) {
         sx={{
           border: "1.5px solid #a2a3a3",
           // backgroundColor: "#f2f1f0",
-          padding: "20px",
+          padding: "15px",
           borderRadius: "5px",
         }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            color: "red",
+            // width: "30px",
+            marginBottom: "10px",
+          }}
+        >
+          <ErrorIcon sx={{ fontSize: "40px", color: "#e36f71" }} />
+        </Box>
         <Typography
           sx={{
             fontSize: 16,
             color: "#524f4e",
             textAlign: "center",
             // backgroundColor: "#ebebed",
-            border: "2px solid red",
+            border: "2px solid #e36f71",
             borderRadius: "5px",
             padding: "4px",
             marginBottom: "30px",
