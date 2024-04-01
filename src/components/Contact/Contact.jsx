@@ -10,9 +10,8 @@ import Typography from "@mui/material/Typography";
 import PhoneIcon from "@mui/icons-material/Phone";
 import PersonIcon from "@mui/icons-material/Person";
 import { useDispatch } from "react-redux";
-import { updateContact } from "../../redux/contacts/contactsOps";
-import EditForm from "./EditForm";
-import ModalEdit from "../Modal/ModalEdit";
+import { updateContact } from "../../redux/contacts/operations";
+import EditForm from "../EditForm/EditForm";
 import BorderColorTwoToneIcon from "@mui/icons-material/BorderColorTwoTone";
 
 const theme = createTheme({

@@ -1,6 +1,6 @@
 import Contact from "../Contact/Contact";
 import { useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../redux/contacts/contactsSlice";
+import { selectFilteredContacts } from "../../redux/contacts/slice";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";

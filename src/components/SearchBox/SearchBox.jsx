@@ -1,8 +1,8 @@
 import { useId } from "react";
-import css from "./SearchBox.module.css";
+// import css from "./SearchBox.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilteredContacts } from "../../redux/contacts/filtersSlice";
-import { selectNameFilter } from "../../redux/contacts/selectors";
+import { changeFilteredContacts } from "../../redux/filters/slice";
+import { selectNameFilter } from "../../redux/filters/selectors";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Input from "@mui/material/Input";

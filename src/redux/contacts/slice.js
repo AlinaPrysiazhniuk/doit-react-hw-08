@@ -4,8 +4,8 @@ import {
   fetchContacts,
   addContact,
   updateContact,
-} from "./contactsOps";
-import { selectNameFilter } from "./selectors";
+} from "./operations";
+import { selectNameFilter } from "../filters/selectors";
 import { selectContacts } from "./selectors";
 
 const slice = createSlice({

@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from "formik";
-import { logIn } from "../../redux/auth/operations";
+import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
@@ -11,7 +11,7 @@ export default function LoginForm() {
   const mailId = useId();
   const passwordId = useId();
   const handleSubmit = (values, actions) => {
-    dispatch(logIn(values));
+    dispatch(login(values));
     actions.resetForm();
   };
   return (

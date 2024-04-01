@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import "yup-phone-lite";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";

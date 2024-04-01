@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
-import { logOut } from "../../redux/auth/operations";
+import { logout } from "../../redux/auth/operations";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -26,7 +26,7 @@ export default function UserMenu() {
         type="button"
         startIcon={<LogoutIcon fontSize="small" />}
         onClick={() => {
-          dispatch(logOut());
+          dispatch(logout());
         }}
       >
         Logout
