@@ -132,6 +132,7 @@ export default function ContactForm() {
               variant="outlined"
               type="submit"
               disabled={!dirty || !isValid}
+              sx={{ border: "2px solid" }}
             >
               Add contact
             </Button>

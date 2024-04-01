@@ -23,7 +23,6 @@ export default function SearchContact() {
     <Box
       sx={{
         marginTop: "10px",
-        // backgroundColor: "#d7d8db",
 
         padding: "15px",
         border: "1.5px solid #a2a3a3",
@@ -32,7 +31,7 @@ export default function SearchContact() {
         justifyContent: "center",
         alignItems: "flex-end",
         gap: "20px",
-        marginBottom: "18px",
+        marginBottom: "6px",
       }}
     >
       <label htmlFor={searchBoxId}>
@@ -67,7 +66,6 @@ export default function SearchContact() {
           </InputAdornment>
         }
       />
-      {/* <input className={css.input_filter} /> */}
     </Box>
   );
 }
