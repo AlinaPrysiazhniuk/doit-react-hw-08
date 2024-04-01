@@ -25,7 +25,7 @@ export default function SearchContact() {
         marginTop: "10px",
         // backgroundColor: "#d7d8db",
 
-        padding: "10px",
+        padding: "15px",
         border: "1.5px solid #a2a3a3",
         borderRadius: "5px",
         display: "flex",
@@ -63,7 +63,7 @@ export default function SearchContact() {
         onChange={valueChange}
         startAdornment={
           <InputAdornment position="start">
-            <PersonSearchOutlinedIcon />
+            <PersonSearchOutlinedIcon sx={{ fontSize: "30px" }} />
           </InputAdornment>
         }
       />

@@ -32,13 +32,13 @@ export default function ModalContact({ contact, close }) {
             display: "flex",
             justifyContent: "center",
             color: "red",
-            // width: "30px",
-            marginBottom: "10px",
           }}
         >
-          <ErrorIcon sx={{ fontSize: "40px", color: "#e36f71" }} />
+          <ErrorIcon
+            sx={{ fontSize: "40px", color: "#e36f71", marginBottom: "20px" }}
+          />
         </Box>
-        <Typography
+        <Box
           sx={{
             fontSize: 16,
             color: "#524f4e",
@@ -46,8 +46,9 @@ export default function ModalContact({ contact, close }) {
             // backgroundColor: "#ebebed",
             border: "2px solid #e36f71",
             borderRadius: "5px",
-            padding: "4px",
+            padding: "6px",
             marginBottom: "30px",
+            fontFamily: "",
           }}
         >
           Are you sure you want to delete the contact
@@ -61,7 +62,7 @@ export default function ModalContact({ contact, close }) {
           >
             {contact.name} ?
           </Typography>
-        </Typography>
+        </Box>
 
         <Box
           sx={{
