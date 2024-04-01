@@ -46,9 +46,9 @@ export default function Contacts() {
       >
         <ContactsIcon /> Phonebook
       </Typography>
-
-      <ContactForm />
       {loading && <Loader />}
+      <ContactForm />
+
       <SearchBox />
 
       {error ? <Error>Error! </Error> : <ContactList />}

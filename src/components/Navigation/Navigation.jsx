@@ -18,9 +18,9 @@ export default function Navigation() {
           sx={{
             fontSize: 22,
             flexGrow: 2,
-            color: "#4f4e4d",
             fontWeight: "600",
             transitionDuration: "600ms",
+            color: "#4f4e4d",
             "&:hover": {
               color: "primary.main",
             },

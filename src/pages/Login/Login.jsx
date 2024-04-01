@@ -5,8 +5,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ArrowCircleRightSharpIcon from "@mui/icons-material/ArrowCircleRightSharp";
 import LoginIcon from "@mui/icons-material/Login";
+import { useSelector } from "react-redux";
+import { selectIsLoading } from "../../redux/auth/selectors";
+import Loader from "../../components/Loader/Loader";
 
 export default function Login() {
+  const loading = useSelector(selectIsLoading);
   return (
     <Box>
       <Box
@@ -73,10 +77,7 @@ export default function Login() {
           Register
         </Link>
       </Box>
-      {/* 
-      <Button variant="outlined" type="submit">
-        <Link>Register</Link>
-      </Button> */}
+      {loading && <Loader />}
     </Box>
   );
 }

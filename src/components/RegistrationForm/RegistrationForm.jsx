@@ -11,6 +11,12 @@ import { ErrorMessage } from "formik";
 import css from "./RegistrationForm.module.css";
 import OutlinedInput from "@mui/material/OutlinedInput";
 
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short!")
@@ -30,8 +36,8 @@ export default function RegistrationForm() {
   const mailId = useId();
   const nameId = useId();
   const passwordId = useId();
+
   const handleSubmit = (values, actions) => {
-    console.log(values);
     dispatch(register(values));
     actions.resetForm();
   };
@@ -46,11 +52,7 @@ export default function RegistrationForm() {
       }}
     >
       <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          password: "",
-        }}
+        initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
@@ -76,7 +78,7 @@ export default function RegistrationForm() {
             }}
           >
             <label htmlFor={nameId}>Username</label>
-            <Field name="name">
+            <Field name="name" type="name">
               {({ field }) => (
                 <OutlinedInput
                   id={nameId}

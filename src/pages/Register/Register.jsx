@@ -2,8 +2,12 @@ import RegistrationForm from "../../components/RegistrationForm/RegistrationForm
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import LoginIcon from "@mui/icons-material/Login";
+import { useSelector } from "react-redux";
+import { selectIsLoading } from "../../redux/auth/selectors";
+import Loader from "../../components/Loader/Loader";
 
 export default function Register() {
+  const loading = useSelector(selectIsLoading);
   return (
     <Box>
       <Box
@@ -31,6 +35,7 @@ export default function Register() {
           Register your account <LoginIcon sx={{ fontSize: "30px" }} />
         </Typography>
       </Box>
+      {loading && <Loader />}
       <RegistrationForm />
     </Box>
   );
