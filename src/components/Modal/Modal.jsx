@@ -29,16 +29,26 @@ export default function ModalContact({ contact, close }) {
         <Typography
           sx={{
             fontSize: 16,
-            color: "red",
+            color: "#524f4e",
             textAlign: "center",
-            backgroundColor: "silver",
-            border: "1px solid #a2a3a3",
+            // backgroundColor: "#ebebed",
+            border: "2px solid red",
             borderRadius: "5px",
             padding: "4px",
             marginBottom: "30px",
           }}
         >
-          Are you sure you want to delete the contact {contact.name}?
+          Are you sure you want to delete the contact
+          <Typography
+            sx={{
+              fontSize: 18,
+              color: "#524f4e",
+              textAlign: "center",
+              fontWeight: "600",
+            }}
+          >
+            {contact.name} ?
+          </Typography>
         </Typography>
 
         <Box
