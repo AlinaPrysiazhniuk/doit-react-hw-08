@@ -153,6 +153,20 @@ export default function Home() {
           Start using the Contacts Book today and forget about communication
           misunderstandings!
         </Typography>
+        <Typography
+          sx={{
+            color: "#3b3c3d",
+            textAlign: "right",
+            border: "1px solid silver",
+            borderRadius: "8px",
+            padding: "5px",
+            textDecoration: "none",
+          }}
+        >
+          <a href="https://github.com/AlinaPrysiazhniuk">
+            Author: Alina Prysiazhniuk
+          </a>
+        </Typography>
       </Box>
     </>
   );
