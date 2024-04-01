@@ -3,11 +3,14 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import LoginIcon from "@mui/icons-material/Login";
 import { useSelector } from "react-redux";
-import { selectIsLoading } from "../../redux/auth/selectors";
+import { selectError, selectIsLoading } from "../../redux/auth/selectors";
 import Loader from "../../components/Loader/Loader";
+import Error from "../../components/Error/Error";
 
 export default function Register() {
   const loading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
   return (
     <Box>
       <Box
@@ -36,6 +39,8 @@ export default function Register() {
         </Typography>
       </Box>
       {loading && <Loader />}
+      {error && <Error>Registration Error! Please, try again!</Error>}
+
       <RegistrationForm />
     </Box>
   );
