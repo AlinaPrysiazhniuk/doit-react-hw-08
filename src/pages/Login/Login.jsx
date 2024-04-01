@@ -74,6 +74,7 @@ export default function Login() {
             display: "flex",
             gap: "10px",
             textDecoration: "none",
+            textTransform: "uppercase",
             color: "#2a8ac9",
           }}
         >
