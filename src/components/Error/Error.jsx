@@ -1,4 +1,3 @@
-import css from "./Error.module.css";
 import { Box, Typography } from "@mui/material";
 
 export default function Error({ children }) {
