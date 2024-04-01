@@ -23,14 +23,16 @@ export default function SearchContact() {
     <Box
       sx={{
         marginTop: "10px",
-        backgroundColor: "#f2f1f0",
+        // backgroundColor: "#d7d8db",
+
         padding: "10px",
-        borderRadius: "8px",
+        border: "1.5px solid #a2a3a3",
+        borderRadius: "5px",
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-end",
         gap: "20px",
-        marginBottom: "20px",
+        marginBottom: "18px",
       }}
     >
       <label htmlFor={searchBoxId}>
@@ -40,12 +42,20 @@ export default function SearchContact() {
             color: "#524f4e",
             fontSize: "16px",
             textAlign: "center",
+            textTransform: "uppercase",
+            fontWeight: "600",
           }}
         >
-          Find contacts by name:
+          Find contact by name:
         </Typography>
       </label>
       <Input
+        sx={{
+          transition: "transform 600ms",
+          "&:hover": {
+            transform: "scale(1.1)",
+          },
+        }}
         type="text"
         name="searchbox"
         id={searchBoxId}

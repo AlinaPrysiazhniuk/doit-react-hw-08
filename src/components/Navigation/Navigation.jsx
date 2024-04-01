@@ -20,8 +20,9 @@ export default function Navigation() {
             flexGrow: 2,
             color: "#4f4e4d",
             fontWeight: "600",
+            transitionDuration: "600ms",
             "&:hover": {
-              color: "#55a8d9",
+              color: "primary.main",
             },
           }}
         >
@@ -51,8 +52,9 @@ export default function Navigation() {
                 flexGrow: 2,
                 color: "#4f4e4d",
                 fontWeight: "600",
+                transitionDuration: "600ms",
                 "&:hover": {
-                  color: "#55a8d9",
+                  color: "primary.main",
                 },
               }}
             >

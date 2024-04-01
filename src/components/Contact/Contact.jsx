@@ -146,7 +146,15 @@ export default function Contact({ contact }) {
             openModalEdit();
           }}
           color="edit"
-          sx={{ height: "35px", alignItems: "stretch", marginRight: "10px" }}
+          sx={{
+            height: "35px",
+            alignItems: "stretch",
+            marginRight: "10px",
+            transition: "transform 600ms",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
+          }}
         >
           Edit
         </Button>
@@ -157,7 +165,14 @@ export default function Contact({ contact }) {
           startIcon={<DeleteIcon fontSize="small" />}
           onClick={handleDelete}
           color="ochre"
-          sx={{ height: "35px", alignItems: "stretch" }}
+          sx={{
+            height: "35px",
+            alignItems: "stretch",
+            transition: "transform 600ms",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
+          }}
         >
           Delete
         </Button>
