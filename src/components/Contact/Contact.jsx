@@ -183,7 +183,7 @@ export default function Contact({ contact }) {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          {<ModalContact contact={contact} />}
+          {<ModalContact contact={contact} close={closeModalContact} />}
         </Modal>
 
         <Modal
