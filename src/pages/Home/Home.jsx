@@ -1,6 +1,6 @@
 import css from "./Home.module.css";
 import { Box, Link, List, ListItemText, Typography } from "@mui/material";
-import SecurityIcon from "@mui/icons-material/Security";
+import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useLocation } from "react-router-dom";
 
@@ -56,7 +56,7 @@ export default function Home() {
                 color: "#3b3c3d",
               }}
             >
-              <SecurityIcon />
+              <BubbleChartIcon />
               <Typography
                 sx={{
                   border: "1px solid silver",
@@ -86,7 +86,7 @@ export default function Home() {
                 color: "#3b3c3d",
               }}
             >
-              <SecurityIcon />
+              <BubbleChartIcon />
               <Typography
                 sx={{
                   border: "1px solid silver",
@@ -117,7 +117,7 @@ export default function Home() {
                 // marginBottom: "10px",
               }}
             >
-              <SecurityIcon />{" "}
+              <BubbleChartIcon />
               <Typography
                 sx={{
                   border: "1px solid silver",
