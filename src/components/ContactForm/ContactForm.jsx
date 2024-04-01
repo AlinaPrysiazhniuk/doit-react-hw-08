@@ -64,7 +64,7 @@ export default function ContactForm() {
               alignItems: "center",
               color: "#524f4e",
               fontWeight: "600",
-              backgroundColor: "#d5d9db",
+              backgroundColor: "#dbdbdb",
             }}
           >
             <Box
@@ -80,7 +80,7 @@ export default function ContactForm() {
                 {({ field }) => (
                   <TextField
                     sx={{
-                      backgroundColor: "#e8eced",
+                      backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
                       borderRadius: "5px",
                     }}
@@ -111,7 +111,7 @@ export default function ContactForm() {
                 {({ field }) => (
                   <TextField
                     sx={{
-                      backgroundColor: "#e8eced",
+                      backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
                       borderRadius: "5px",
                     }}
