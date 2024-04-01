@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeFilteredContacts } from "../../redux/filters/slice";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import InputAdornment from "@mui/material/InputAdornment";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import Input from "@mui/material/Input";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -23,7 +22,6 @@ export default function SearchContact() {
     <Box
       sx={{
         marginTop: "10px",
-
         padding: "15px",
         border: "1.5px solid #a2a3a3",
         borderRadius: "8px",

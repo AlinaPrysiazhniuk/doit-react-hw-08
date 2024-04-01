@@ -12,16 +12,18 @@ export default function UserMenu() {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
-      <Typography variant="h7" sx={{ color: "#4f4e4d", marginRight: "5px" }}>
+      <Typography
+        sx={{ color: "#4f4e4d", marginRight: "5px", fontSize: "18px" }}
+      >
         Welcome,
       </Typography>
       <Typography
-        variant="h7"
         sx={{
           color: "#4f4e4d",
           fontWeight: "500",
           marginRight: "10px",
           textDecorationLine: "underline",
+          fontSize: "18px",
         }}
       >
         {user.name}
