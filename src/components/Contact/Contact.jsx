@@ -115,6 +115,7 @@ export default function Contact({ contact }) {
               display: "flex",
               alignItems: "center",
               gap: "10px",
+              fontWeight: "600",
             }}
           >
             <PersonIcon />

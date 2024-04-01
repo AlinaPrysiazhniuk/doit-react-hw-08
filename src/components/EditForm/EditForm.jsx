@@ -9,6 +9,8 @@ import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import BorderColorTwoToneIcon from "@mui/icons-material/BorderColorTwoTone";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -63,15 +65,26 @@ export default function EditForm({ contact, onSubmit, close }) {
           <Typography
             sx={{
               fontSize: 16,
-              color: "#2a8ac9",
+              color: "primary.main",
               fontWeight: "600",
               textAlign: "center",
+
               "&:hover": {
                 color: "#55a8d9",
               },
             }}
           >
             Please, make any necessary changes to the contact
+            <Icon
+              sx={{
+                marginLeft: "10px",
+                fontSize: 20,
+                color: "primary.main", // Колір іконки
+                animation: "spin 2s linear infinite", // Анімація
+              }}
+            >
+              <BorderColorTwoToneIcon fontSize="small" />
+            </Icon>
           </Typography>
 
           <Box
