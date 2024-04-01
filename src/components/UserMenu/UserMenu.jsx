@@ -30,6 +30,7 @@ export default function UserMenu() {
       <Button
         sx={{
           fontSize: "16px",
+          border: "1px solid #2a8ac9",
           transitionDuration: "600ms",
           "&:hover": {
             backgroundColor: "primary.main",

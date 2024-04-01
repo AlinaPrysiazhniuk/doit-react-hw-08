@@ -27,7 +27,7 @@ export default function SearchContact() {
 
         padding: "15px",
         border: "1.5px solid #a2a3a3",
-        borderRadius: "5px",
+        borderRadius: "8px",
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-end",

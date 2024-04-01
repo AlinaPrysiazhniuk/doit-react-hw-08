@@ -54,7 +54,7 @@ export default function ContactForm() {
           <Form
             style={{
               border: "1.5px solid #a2a3a3",
-              borderRadius: "5px",
+              borderRadius: "8px",
               width: "280px",
               padding: "20px",
               display: "flex",
@@ -81,7 +81,7 @@ export default function ContactForm() {
                     sx={{
                       backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
-                      borderRadius: "5px",
+                      borderRadius: "8px",
                     }}
                     {...field}
                     id={nameId}
@@ -112,7 +112,7 @@ export default function ContactForm() {
                     sx={{
                       backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
-                      borderRadius: "5px",
+                      borderRadius: "8px",
                     }}
                     {...field}
                     id={phoneId}

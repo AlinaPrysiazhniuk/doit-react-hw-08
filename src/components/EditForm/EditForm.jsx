@@ -52,7 +52,7 @@ export default function EditForm({ contact, onSubmit, close }) {
           style={{
             border: "1.5px solid #a2a3a3",
             backgroundColor: "#f2f1f0",
-            borderRadius: "5px",
+            borderRadius: "8px",
             width: "280px",
             padding: "20px",
             display: "flex",

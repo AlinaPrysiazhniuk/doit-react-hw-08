@@ -24,7 +24,7 @@ export default function ModalContact({ contact, close }) {
           border: "1.5px solid #a2a3a3",
           // backgroundColor: "#f2f1f0",
           padding: "15px",
-          borderRadius: "5px",
+          borderRadius: "8px",
         }}
       >
         <Box
@@ -45,7 +45,7 @@ export default function ModalContact({ contact, close }) {
             textAlign: "center",
             // backgroundColor: "#ebebed",
             border: "2px solid #e36f71",
-            borderRadius: "5px",
+            borderRadius: "8px",
             padding: "6px",
             marginBottom: "30px",
             fontFamily: "",
