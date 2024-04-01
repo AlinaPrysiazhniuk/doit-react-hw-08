@@ -46,23 +46,10 @@ export default function LoginForm() {
               display: "flex",
               flexDirection: "column",
               gap: "6px",
-              // width: "100%",
               color: "#524f4e",
-              // fontWeight: "500",
             }}
           >
-            <label
-              htmlFor={mailId}
-              style={
-                {
-                  // display: "flex",
-                  // flexDirection: " column",
-                  // gap: "6px",
-                }
-              }
-            >
-              Email
-            </label>
+            <label htmlFor={mailId}>Email</label>
             <Field type="email" name="email">
               {({ field }) => (
                 <TextField
@@ -73,7 +60,6 @@ export default function LoginForm() {
                   {...field}
                   id={mailId}
                   label="Enter your email"
-                  defaultValue="Default Value"
                 />
               )}
             </Field>
@@ -89,12 +75,7 @@ export default function LoginForm() {
               fontWeight: "500",
             }}
           >
-            <label
-              htmlFor={passwordId}
-              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
-            >
-              Password
-            </label>
+            <label htmlFor={passwordId}>Password</label>
             <Field type="password" name="password">
               {({ field }) => (
                 <TextField
@@ -103,10 +84,7 @@ export default function LoginForm() {
                     backgroundColor: "#f5f8fa",
                   }}
                   {...field}
-                  // id={nameId}
-
                   label="Enter password"
-                  defaultValue="Default Value"
                 />
               )}
             </Field>

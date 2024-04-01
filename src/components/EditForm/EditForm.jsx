@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { updateContact } from "../../redux/contacts/operations";
 import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 const ContactSchema = Yup.object().shape({
@@ -29,7 +29,6 @@ export default function EditForm({ contact, onSubmit, close }) {
   const handleSubmit = (values) => {
     onSubmit(values);
     close();
-    // visibleBtnEdit();
   };
 
   return (
@@ -50,18 +49,31 @@ export default function EditForm({ contact, onSubmit, close }) {
         <Form
           style={{
             border: "1.5px solid #a2a3a3",
+            backgroundColor: "#f2f1f0",
             borderRadius: "5px",
             width: "280px",
             padding: "20px",
             display: "flex",
             flexDirection: "column",
-
             gap: "15px",
             alignItems: "stretch",
-            color: "#524f4e",
             fontWeight: "600",
           }}
         >
+          <Typography
+            sx={{
+              fontSize: 16,
+              color: "#2a8ac9",
+              fontWeight: "600",
+              textAlign: "center",
+              "&:hover": {
+                color: "#55a8d9",
+              },
+            }}
+          >
+            Please, make any necessary changes to the contact
+          </Typography>
+
           <Box
             sx={{
               display: "flex",
@@ -70,9 +82,16 @@ export default function EditForm({ contact, onSubmit, close }) {
               width: "100%",
             }}
           >
-            {/* <label htmlFor={nameId}>Name</label> */}
             <Field name="name">
-              {({ field }) => <TextField {...field} label="Enter valid name" />}
+              {({ field }) => (
+                <TextField
+                  {...field}
+                  label="Enter valid name"
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
+                />
+              )}
             </Field>
             <ErrorMessage name="name" component="span" className={css.error} />
           </Box>
@@ -85,13 +104,14 @@ export default function EditForm({ contact, onSubmit, close }) {
               width: "100%",
             }}
           >
-            {/* <label htmlFor={phoneId}>Number</label> */}
             <Field name="number">
               {({ field }) => (
                 <TextField
                   {...field}
                   label="Enter valid number"
-                  //   value={initialValues.number}
+                  sx={{
+                    backgroundColor: "#f5f8fa",
+                  }}
                 />
               )}
             </Field>
@@ -102,7 +122,11 @@ export default function EditForm({ contact, onSubmit, close }) {
             />
           </Box>
 
-          <Button variant="outlined" type="submit">
+          <Button
+            variant="outlined"
+            type="submit"
+            sx={{ backgroundColor: "#cce6f0" }}
+          >
             Save
           </Button>
         </Form>

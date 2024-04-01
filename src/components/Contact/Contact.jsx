@@ -36,6 +36,7 @@ const customStyles = {
     heigth: "400px",
   },
   overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
     width: "100%",
     height: "100%",
     display: "flex",
@@ -56,13 +57,6 @@ export default function Contact({ contact }) {
   const [values, setValues] = useState({});
   const dispatch = useDispatch();
 
-  // function openModal() {
-  //   setIsOpen(true);
-  // }
-
-  // function closeModal() {
-  //   setIsOpen(false);
-  // }
   const openModalContact = () => {
     setModalContactIsOpen(true);
   };
@@ -85,9 +79,6 @@ export default function Contact({ contact }) {
 
   const handleSubmit = (values) => {
     setValues(values);
-    console.log(values);
-
-    // e.preventDefault();
     dispatch(
       updateContact({
         ...values,
@@ -100,12 +91,7 @@ export default function Contact({ contact }) {
 
   const onClose = () => {
     setIsEditing(false);
-    // setIsVisible(true);
   };
-
-  // const visibleBtnEdit = () => {
-  //   setIsVisible(true);
-  // };
 
   return (
     <Box
@@ -121,13 +107,6 @@ export default function Contact({ contact }) {
       }}
     >
       <ThemeProvider theme={theme}>
-        {/* {isEditing ? (
-          <EditForm
-            contact={contact}
-            onSubmit={handleSubmit}
-            visibleBtnEdit={visibleBtnEdit}
-          />
-        ) : ( */}
         <Box sx={{ width: "200px" }}>
           <Typography
             sx={{
@@ -154,7 +133,6 @@ export default function Contact({ contact }) {
             {contact.number}
           </Typography>
         </Box>
-        {/* )} */}
 
         <Button
           variant="outlined"
@@ -163,7 +141,7 @@ export default function Contact({ contact }) {
           onClick={() => {
             setIsEditing(true);
             setIsVisible(false);
-            // setQwe1(true);
+
             openModalEdit();
           }}
           color="edit"
