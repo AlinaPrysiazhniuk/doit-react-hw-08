@@ -17,18 +17,31 @@ export default function UserMenu() {
       </Typography>
       <Typography
         variant="h7"
-        sx={{ color: "#4f4e4d", fontWeight: "500", marginRight: "10px" }}
+        sx={{
+          color: "#4f4e4d",
+          fontWeight: "500",
+          marginRight: "10px",
+          textDecorationLine: "underline",
+        }}
       >
         {user.name}
       </Typography>
 
       <Button
+        sx={{
+          fontSize: "16px",
+          transitionDuration: "600ms",
+          "&:hover": {
+            backgroundColor: "primary.main",
+            color: "white",
+          },
+        }}
         type="button"
-        startIcon={<LogoutIcon fontSize="small" />}
         onClick={() => {
           dispatch(logout());
         }}
       >
+        <LogoutIcon sx={{ fontSize: "25px" }} />
         Logout
       </Button>
     </Box>

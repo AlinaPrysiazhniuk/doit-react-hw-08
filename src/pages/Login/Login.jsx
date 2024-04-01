@@ -15,6 +15,7 @@ export default function Login() {
           backgroundColor: "#f2f1f0",
           padding: "10px",
           borderRadius: "8px",
+          marginBottom: "10px",
         }}
       >
         <Typography
@@ -33,9 +34,8 @@ export default function Login() {
         >
           Log in <LoginIcon sx={{ fontSize: "30px" }} />
         </Typography>
-        <LoginForm />
       </Box>
-
+      <LoginForm />
       <Box
         sx={{
           marginTop: "10px",
