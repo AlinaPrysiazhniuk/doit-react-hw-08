@@ -1,8 +1,11 @@
 import css from "./Home.module.css";
-import { Box, List, ListItemText, Typography } from "@mui/material";
+import { Box, Link, List, ListItemText, Typography } from "@mui/material";
 import SecurityIcon from "@mui/icons-material/Security";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+  const location = useLocation();
   return (
     <>
       <Box
@@ -24,7 +27,7 @@ export default function Home() {
           sx={{
             textAlign: "center",
             color: "primary.dark",
-            marginBottom: "10px",
+            marginBottom: "30px",
             textDecorationLine: "underline",
           }}
         >
@@ -33,17 +36,12 @@ export default function Home() {
 
         <Typography
           variant="h6"
-          sx={{ textAlign: "center", marginBottom: "20px", color: "#524f4e" }}
-        >
-          Your reliable assistant in storing and managing your contacts
-        </Typography>
-        <Typography
-          variant="h6"
           sx={{
             textAlign: "center",
             textTransform: "uppercase",
             color: "#3b3c3d",
             fontWeight: "600",
+            marginBottom: "10px",
           }}
         >
           Why choose our app?
@@ -116,6 +114,7 @@ export default function Home() {
                 alignItems: "center",
                 gap: "12px",
                 color: "#3b3c3d",
+                // marginBottom: "10px",
               }}
             >
               <SecurityIcon />{" "}
@@ -144,7 +143,7 @@ export default function Home() {
             textAlign: "center",
             textTransform: "uppercase",
             color: "#3b3c3d",
-            marginY: " 20px",
+            marginY: " 30px",
             border: "1px solid silver",
             borderRadius: "8px",
             padding: "5px",
@@ -156,16 +155,28 @@ export default function Home() {
         <Typography
           sx={{
             color: "#3b3c3d",
-            textAlign: "right",
             border: "1px solid silver",
             borderRadius: "8px",
             padding: "5px",
-            textDecoration: "none",
+            marginBottom: "10px",
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "ButtonFace",
           }}
         >
-          <a href="https://github.com/AlinaPrysiazhniuk">
+          <Link
+            state={location}
+            href="https://github.com/AlinaPrysiazhniuk"
+            sx={{
+              display: "flex",
+              textDecoration: "none",
+              gap: "10px",
+              textTransform: "uppercase",
+            }}
+          >
             Author: Alina Prysiazhniuk
-          </a>
+            <GitHubIcon />
+          </Link>
         </Typography>
       </Box>
     </>
