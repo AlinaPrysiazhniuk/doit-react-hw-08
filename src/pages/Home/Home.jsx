@@ -1,4 +1,3 @@
-import css from "./Home.module.css";
 import { Box, Link, List, ListItemText, Typography } from "@mui/material";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -19,7 +18,6 @@ export default function Home() {
           borderRadius: "12px",
           paddingY: "20px",
           paddingX: "40px",
-          // backgroundColor: "#bbd5ed",
         }}
       >
         <Typography
@@ -114,7 +112,6 @@ export default function Home() {
                 alignItems: "center",
                 gap: "12px",
                 color: "#3b3c3d",
-                // marginBottom: "10px",
               }}
             >
               <BubbleChartIcon />

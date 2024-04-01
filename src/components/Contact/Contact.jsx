@@ -52,8 +52,6 @@ export default function Contact({ contact }) {
   const [modalEditIsOpen, setModalEditIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  // const [qwe, setQwe] = useState(false);
-  // const [qwe1, setQwe1] = useState(false);
 
   const [values, setValues] = useState({});
   const dispatch = useDispatch();
@@ -203,6 +201,3 @@ export default function Contact({ contact }) {
     </Box>
   );
 }
-
-//коли ми на тискаємо делете то відривається модальне вікно
-//dispatch(delete) спрацьовує уже з модального вікна

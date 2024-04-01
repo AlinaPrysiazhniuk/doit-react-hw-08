@@ -1,8 +1,6 @@
 import { Formik, Form, Field } from "formik";
-// import css from "./RegistrationForm.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import { useId } from "react";
@@ -99,15 +97,9 @@ export default function RegistrationForm() {
               gap: "4px",
               width: "100%",
               color: "#524f4e",
-              // fontWeight: "500",
             }}
           >
-            <label
-              htmlFor={mailId}
-              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
-            >
-              Email
-            </label>
+            <label htmlFor={mailId}>Email</label>
             <Field type="email" name="email">
               {({ field }) => (
                 <OutlinedInput
@@ -116,10 +108,7 @@ export default function RegistrationForm() {
                     backgroundColor: "#f5f8fa",
                   }}
                   {...field}
-                  // id={nameId}
-
                   placeholder="Enter your email"
-                  // defaultValue="Default Value"
                 />
               )}
             </Field>
@@ -136,12 +125,7 @@ export default function RegistrationForm() {
               fontWeight: "500",
             }}
           >
-            <label
-              htmlFor={passwordId}
-              // style={{ display: "flex", flexDirection: " column", gap: "4px" }}
-            >
-              Password
-            </label>
+            <label htmlFor={passwordId}>Password</label>
             <Field type="password" name="password">
               {({ field }) => (
                 <OutlinedInput

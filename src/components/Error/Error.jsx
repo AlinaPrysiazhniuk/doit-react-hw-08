@@ -1,5 +1,5 @@
 import css from "./Error.module.css";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Error({ children }) {
   return (
@@ -11,9 +11,9 @@ export default function Error({ children }) {
         fontSize: "20px",
       }}
     >
-      <p className={css.text}>
+      <Typography sx={{ margin: "0", color: "orangered" }}>
         <b>{children}</b>
-      </p>
+      </Typography>
     </Box>
   );
 }
