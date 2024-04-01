@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import OutlinedInput from "@mui/material/OutlinedInput";
 
 const initialValues = {
   name: "",
@@ -78,7 +79,7 @@ export default function ContactForm() {
               <label htmlFor={nameId}>Name</label>
               <Field name="name">
                 {({ field }) => (
-                  <TextField
+                  <OutlinedInput
                     sx={{
                       backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
@@ -86,7 +87,7 @@ export default function ContactForm() {
                     }}
                     {...field}
                     id={nameId}
-                    label="Enter valid name"
+                    placeholder="Enter valid name"
                     value={field.value}
                   />
                 )}
@@ -109,7 +110,7 @@ export default function ContactForm() {
               <label htmlFor={phoneId}>Number</label>
               <Field name="number">
                 {({ field }) => (
-                  <TextField
+                  <OutlinedInput
                     sx={{
                       backgroundColor: "#f5f8fa",
                       border: "1px solid #edf9fc",
@@ -117,7 +118,7 @@ export default function ContactForm() {
                     }}
                     {...field}
                     id={phoneId}
-                    label={"Enter valid number"}
+                    placeholder="Enter valid number"
                     value={field.value}
                   />
                 )}
