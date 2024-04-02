@@ -140,7 +140,6 @@ export default function EditForm({ contact, onSubmit, close }) {
           </Button>
         </Form>
       </Formik>
-      <Toaster />
     </Box>
   );
 }
