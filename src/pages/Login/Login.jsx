@@ -6,13 +6,13 @@ import Box from "@mui/material/Box";
 import ArrowCircleRightSharpIcon from "@mui/icons-material/ArrowCircleRightSharp";
 import LoginIcon from "@mui/icons-material/Login";
 import { useSelector } from "react-redux";
-import { selectError, selectIsLoading } from "../../redux/auth/selectors";
+import { selectIsLoading } from "../../redux/auth/selectors";
 import Loader from "../../components/Loader/Loader";
-import Error from "../../components/Error/Error";
+// import Error from "../../components/Error/Error";
 
 export default function Login() {
   const loading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const error = useSelector(selectError);
 
   return (
     <Box>
@@ -42,7 +42,7 @@ export default function Login() {
           Log in <LoginIcon sx={{ fontSize: "30px" }} />
         </Typography>
       </Box>
-      {error && <Error>Login error! Please, try again!</Error>}
+      {/* {error && <Error>Login error! Please, try again!</Error>} */}
       <LoginForm />
       <Box
         sx={{
