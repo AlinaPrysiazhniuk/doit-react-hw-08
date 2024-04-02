@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 import ErrorIcon from "@mui/icons-material/Error";
@@ -105,7 +105,6 @@ export default function ModalContact({ contact, close }) {
           </Button>
         </Box>
       </Box>
-      <Toaster />
     </Box>
   );
 }

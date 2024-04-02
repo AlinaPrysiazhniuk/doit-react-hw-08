@@ -5,7 +5,7 @@ import "yup-phone-lite";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -139,7 +139,6 @@ export default function ContactForm() {
           </Form>
         )}
       </Formik>
-      <Toaster />
     </Box>
   );
 }
