@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import css from "./LoginForm.module.css";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 const ContactSchema = Yup.object().shape({
   email: Yup.string()
@@ -25,14 +25,14 @@ export default function LoginForm() {
   const mailId = useId();
   const passwordId = useId();
   const handleSubmit = (values, actions) => {
-    dispatch(login(values))
-      .unwrap()
-      .then(() => {
-        toast.success("Login was successful!");
-      })
-      .catch(() => {
-        toast.error("Login was failed!");
-      });
+    dispatch(login(values));
+    // .unwrap()
+    // .then(() => {
+    //   toast.success("Login was successful!");
+    // })
+    // .catch(() => {
+    //   toast.error("Login was failed!");
+    // });
 
     actions.resetForm();
   };

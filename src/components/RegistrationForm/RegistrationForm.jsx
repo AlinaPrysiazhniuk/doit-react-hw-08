@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import css from "./RegistrationForm.module.css";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 const initialValues = {
   name: "",
@@ -37,14 +37,14 @@ export default function RegistrationForm() {
   const passwordId = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values))
-      .unwrap()
-      .then(() => {
-        toast.success("Registration was successful!");
-      })
-      .catch(() => {
-        toast.error("Registration was failed!");
-      });
+    dispatch(register(values));
+    // .unwrap()
+    // .then(() => {
+    //   toast.success("Registration was successful!");
+    // })
+    // .catch(() => {
+    //   toast.error("Registration was failed!");
+    // });
     actions.resetForm();
   };
 
