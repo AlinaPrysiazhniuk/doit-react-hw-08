@@ -13,7 +13,7 @@ export default function UserMenu() {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Typography
-        sx={{ color: "#4f4e4d", marginRight: "5px", fontSize: "18px" }}
+        sx={{ color: "#4f4e4d", marginRight: "5px", fontSize: "16px" }}
       >
         Welcome,
       </Typography>
@@ -23,7 +23,7 @@ export default function UserMenu() {
           fontWeight: "500",
           marginRight: "10px",
           textDecorationLine: "underline",
-          fontSize: "18px",
+          fontSize: "16px",
         }}
       >
         {user.name}
@@ -31,7 +31,7 @@ export default function UserMenu() {
 
       <Button
         sx={{
-          fontSize: "16px",
+          fontSize: "14px",
           border: "1px solid #2a8ac9",
           transitionDuration: "600ms",
           "&:hover": {

@@ -16,6 +16,8 @@ export default function AppBar() {
         paddingBottom: "15px",
         marginBottom: "16px",
         borderBottom: "2px solid #4f4e4d",
+
+        gap: "15px",
       }}
     >
       <Navigation />

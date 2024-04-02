@@ -16,9 +16,10 @@ export default function Navigation() {
       >
         <Typography
           sx={{
-            fontSize: 22,
-            flexGrow: 2,
+            fontSize: 20,
+            // flexGrow: 2,
             fontWeight: "600",
+            textTransform: "uppercase",
             transitionDuration: "600ms",
             color: "#4f4e4d",
             "&:hover": {
@@ -48,9 +49,10 @@ export default function Navigation() {
           >
             <Typography
               sx={{
-                fontSize: 22,
+                fontSize: 20,
                 flexGrow: 2,
                 color: "#4f4e4d",
+                textTransform: "uppercase",
                 fontWeight: "600",
                 transitionDuration: "600ms",
                 "&:hover": {
