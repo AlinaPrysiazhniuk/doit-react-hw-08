@@ -7,7 +7,7 @@ export default function Error({ children }) {
         textAlign: "center",
         marginY: "20px",
         textTransform: "uppercase",
-        fontSize: "20px",
+        fontSize: "18px",
       }}
     >
       <Typography sx={{ margin: "0", color: "orangered" }}>

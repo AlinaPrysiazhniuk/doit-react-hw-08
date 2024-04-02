@@ -22,12 +22,12 @@ export default function ContactList() {
             textAlign: "center",
             marginY: "20px",
             textTransform: "uppercase",
-            fontSize: "20px",
+            fontSize: "16px",
             color: "orangered",
             fontWeight: "600",
           }}
         >
-          Ooopppsss..... We did not find any contact ....
+          Ooopppsss... We did not find any contact ...
         </Typography>
       ) : (
         <List>

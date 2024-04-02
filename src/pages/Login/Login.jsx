@@ -29,7 +29,7 @@ export default function Login() {
           variant="h6"
           sx={{
             color: "#524f4e",
-            fontSize: "22px",
+            fontSize: "18px",
             marginY: "8px",
             textAlign: "center",
             display: "flex",
