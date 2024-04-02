@@ -42,7 +42,7 @@ export default function SearchContact() {
             fontWeight: "600",
           }}
         >
-          Find contact by name:
+          Find contact by name or number:
         </Typography>
       </label>
       <Input
