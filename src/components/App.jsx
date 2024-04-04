@@ -53,7 +53,19 @@ function App() {
           </Route>
         </Routes>
       )}
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          className: "",
+          duration: 2500,
+          style: {
+            background: "#363636",
+            color: "#fff",
+            paddingY: "10px",
+            paddingX: "20px",
+            height: "40px",
+          },
+        }}
+      />
     </>
   );
 }

@@ -5,7 +5,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useSelector } from "react-redux";
 import { selectIsLoading } from "../../redux/auth/selectors";
 import Loader from "../../components/Loader/Loader";
-import Error from "../../components/Error/Error";
+// import Error from "../../components/Error/Error";
 
 export default function Register() {
   const loading = useSelector(selectIsLoading);
