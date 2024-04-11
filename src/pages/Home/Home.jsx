@@ -25,8 +25,7 @@ export default function Home() {
           sx={{
             textAlign: "center",
             color: "primary.dark",
-            marginBottom: "30px",
-            textDecorationLine: "underline",
+            marginBottom: "15px",
           }}
         >
           Welcome to our Contacts Book app!

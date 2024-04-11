@@ -14,9 +14,10 @@ export default function AppBar() {
         justifyContent: "space-between",
         alignItems: "center",
         paddingBottom: "15px",
-        marginBottom: "16px",
+        paddingTop: "15px",
+        marginBottom: "26px",
         borderBottom: "2px solid #4f4e4d",
-
+        borderTop: "2px solid #4f4e4d",
         gap: "15px",
       }}
     >
